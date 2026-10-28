@@ -149,4 +149,34 @@ function payWithPaystack(){
   });
   handler.openIframe();
 }
+</script><script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+function buyItem(item, amount){
+  let email = prompt("Weka Email yako ya Mpesa receipt:");
+  if(!email) return;
+  // YOUR PAYSTACK LIVE KEY
+  let handler = PaystackPop.setup({
+    key: 'pk_live_b2a34fb4d8b9a1c2e3f4a5b6c7d8e9f0a1b2c3d4',
+    email: email,
+    amount: amount * 100,
+    currency: 'KES',
+    callback: function(response){
+      localStorage.setItem('paid_' + item, 'yes');
+      alert('✅ Malipo yamekubaliwa! Fungua ' + item);
+      window.location.href = item + '.html';
+    },
+    onClose: function(){ alert('Umefuta malipo'); }
+  });
+  handler.openIframe();
+}
+
+// Check if already paid - show UNLOCKED
+window.onload = function(){
+  if(localStorage.getItem('paid_cbc-books')=='yes'){
+    document.querySelector('#status-cbc-books').innerHTML = '✅ Unlocked';
+  }
+  if(localStorage.getItem('paid_exams')=='yes'){
+    document.querySelector('#status-exams').innerHTML = '✅ Unlocked';
+  }
+}
 </script></body></html>
