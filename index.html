@@ -1,123 +1,95 @@
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elimu AI - Msaidizi wa Masomo</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
-<style>body{font-family:'Nunito',sans-serif}</style>
+<title>Elimu AI - Homework Msaada</title>
+<style>
+:root{--green:#0f6d3f;--bg:#f4f6f2;--card:#fff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:var(--bg);padding-bottom:90px}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#fff;position:sticky;top:0}
+.logo{font-weight:800;color:var(--green);font-size:22px}
+.card{background:var(--card);border-radius:20px;margin:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.title-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.badge{background:var(--green);color:#fff;padding:5px 12px;border-radius:20px;font-size:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.somo{border-radius:18px;padding:14px 8px;text-align:center;cursor:pointer;border:2px solid transparent}
+.somo.selected{border-color:var(--green);transform:scale(1.03)}
+.somo b{display:block;margin-top:4px;font-size:14px}
+.somo span{font-size:11px;color:#666}
+.math{background:#0f6d3f;color:#fff}.english{background:#f3e8ff}.kiswahili{background:#fef3c7}.science{background:#dcfce7}.sst{background:#fef9c3}.cre{background:#fce7f3}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tab{flex:1;padding:10px;border-radius:30px;border:none;font-weight:700;background:#eee}
+.tab.active{background:var(--green);color:#fff}
+textarea{width:100%;border:none;background:#f5f5f5;border-radius:16px;padding:14px;min-height:100px;font-size:16px;outline:none}
+.btn-main{width:100%;background:linear-gradient(180deg,#15803d,#0f6d3f);color:#fff;border:none;padding:16px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px}
+.answer-card{background:#eef6ee;border-radius:18px;padding:14px;margin-top:16px;border:1px solid #c8e6c9}
+.step{background:#fff;border-radius:12px;padding:10px;margin:8px 0;font-size:14px}
+.jibu{background:var(--green);color:#fff;border-radius:14px;padding:14px;text-align:center;font-weight:800;font-size:18px;margin-top:10px;white-space:pre-wrap}
+.actions{display:flex;gap:8px;margin-top:10px}
+.actions button{flex:1;border:none;padding:8px;border-radius:20px;background:#f0f0f0;font-weight:600}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee}
+.bottom-nav div{text-align:center;font-size:11px;color:#888}
+.bottom-nav .active{color:var(--green);font-weight:700}
+.text-wrap{position:relative}
+.mic-btn{position:absolute;right:10px;bottom:10px;background:#fff;border:none;width:36px;height:36px;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+</style>
 </head>
-<body class="bg-[#F0F7F2] pb-24 max-w-[480px] mx-auto min-h-screen">
-
-<!-- HEADER -->
-<div class="bg-white p-4 flex justify-between items-center sticky top-0 shadow-sm z-10">
-  <h1 class="font-black text-[22px] text-[#0A5C36]">Elimu AI <span class="text-[#1DB954]">✦</span></h1>
-  <div class="flex gap-2">
-    <button class="bg-[#E8F5E9] text-[#0A5C36] px-3 py-1 rounded-full text-xs font-bold">SW</button>
-    <button class="bg-gray-100 px-3 py-1 rounded-full text-xs">EN</button>
-  </div>
+<body>
+<header><div class="logo">Elimu AI ✦</div></header>
+<div class="card">
+<div class="title-row"><h3>Chagua Somo</h3><span class="badge">CBC • 8-4-4</span></div>
+<div class="grid" id="somoGrid">
+<div class="somo math selected" data-somo="Math"><b>Math</b><br><span>Hisabati</span></div>
+<div class="somo english" data-somo="English"><b>English</b><span>Kiingereza</span></div>
+<div class="somo kiswahili" data-somo="Kiswahili"><b>Kiswahili</b><span>Lugha</span></div>
+<div class="somo science" data-somo="Science"><b>Science</b><span>Sayansi</span></div>
+<div class="somo sst" data-somo="SST"><b>SST</b><span>Jamii</span></div>
+<div class="somo cre" data-somo="CRE"><b>CRE</b><span>Dini</span></div>
 </div>
-
-<!-- CHAGUA SOMO - Enhanced Colors -->
-<div class="bg-white m-4 p-5 rounded-[28px] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-  <div class="flex justify-between items-center mb-4">
-    <h2 class="font-black text-[18px]">Chagua Somo</h2>
-    <span class="text-xs bg-[#0A5C36] text-white px-3 py-1 rounded-full">CBC • 8-4-4</span>
-  </div>
-  <div class="grid grid-cols-3 gap-3">
-    <button onclick="selectSub(this,'math')" class="subj active bg-[#0A5C36] text-white border-2 border-[#0A5C36] p-3 rounded-[20px]">
-      <div class="text-2xl">🧮</div><div class="font-black text-sm">Math</div><div class="text-[11px] opacity-80">Hisabati</div>
-    </button>
-    <button onclick="selectSub(this,'eng')" class="subj bg-[#F3E8FF] border-2 border-transparent p-3 rounded-[20px]">
-      <div class="text-2xl">📚</div><div class="font-bold text-sm">English</div><div class="text-[11px] opacity-60">Kiingereza</div>
-    </button>
-    <button onclick="selectSub(this,'swa')" class="subj bg-[#FFEDD5] border-2 border-transparent p-3 rounded-[20px]">
-      <div class="text-2xl">✍️</div><div class="font-bold text-sm">Kiswahili</div><div class="text-[11px] opacity-60">Lugha</div>
-    </button>
-    <button onclick="selectSub(this,'sci')" class="subj bg-[#DCFCE7] border-2 border-transparent p-3 rounded-[20px]">
-      <div class="text-2xl">🔬</div><div class="font-bold text-sm">Science</div><div class="text-[11px] opacity-60">Sayansi</div>
-    </button>
-    <button onclick="selectSub(this,'sst')" class="subj bg-[#FEF9C3] border-2 border-transparent p-3 rounded-[20px]">
-      <div class="text-2xl">🌍</div><div class="font-bold text-sm">SST</div><div class="text-[11px] opacity-60">Jamii</div>
-    </button>
-    <button onclick="selectSub(this,'cre')" class="subj bg-[#FCE7F3] border-2 border-transparent p-3 rounded-[20px]">
-      <div class="text-2xl">🙏</div><div class="font-bold text-sm">CRE</div><div class="text-[11px] opacity-60">Dini</div>
-    </button>
-  </div>
 </div>
-
-<!-- INPUT AREA - Enhanced -->
-<div class="bg-white m-4 p-5 rounded-[28px] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-  <div class="flex bg-gray-100 p-1 rounded-full mb-4">
-    <button id="tType" onclick="setTab('type')" class="flex-1 bg-[#0A5C36] text-white py-2.5 rounded-full text-sm font-black">⌨️ Type Question</button>
-    <button id="tPhoto" onclick="setTab('photo')" class="flex-1 py-2.5 rounded-full text-sm font-bold opacity-60">📷 Upload Photo</button>
-  </div>
-
-  <div id="typeBox">
-    <div class="relative">
-      <textarea id="q" class="w-full bg-[#F8FAF9] rounded-[20px] p-4 h-28 outline-none focus:ring-2 focus:ring-[#0A5C36] text-[15px]">2+2 = ?</textarea>
-      <button class="absolute right-3 bottom-3 bg-white shadow p-2 rounded-full">🎤</button>
-    </div>
-  </div>
-
-  <div id="photoBox" class="hidden">
-    <label class="border-2 border-dashed border-[#0A5C36]/20 bg-[#F6FBF7] rounded-[20px] p-8 flex flex-col items-center">
-      <input type="file" accept="image/*" capture="environment" hidden onchange="previewPhoto(event)">
-      <span class="text-4xl">📸</span>
-      <span class="font-bold text-sm mt-2">Piga picha ya swali</span>
-      <span class="text-xs opacity-50">OCR + AI itasoma</span>
-      <img id="prev" class="hidden mt-3 rounded-xl max-h-40">
-    </label>
-  </div>
-
-  <button onclick="pataJibu()" id="btn" class="w-full mt-4 bg-gradient-to-br from-[#0A5C36] to-[#14A44D] text-white font-black py-4 rounded-[20px] shadow-lg active:scale-[0.98] transition">
-    ✦ Pata Jibu
-  </button>
-
-  <!-- ANSWER -->
-  <div id="ans" class="hidden mt-5">
-    <div class="bg-[#F0FDF4] border border-[#BBF7D0] p-4 rounded-[20px]">
-      <p class="font-black text-[#0A5C36]">✅ Hatua kwa Hatua:</p>
-      <div id="steps" class="mt-2 space-y-2 text-sm"></div>
-      <div id="final" class="bg-[#0A5C36] text-white text-center py-3 rounded-xl mt-3 font-black text-xl"></div>
-    </div>
-    <div class="flex gap-2 mt-3">
-      <button class="flex-1 bg-gray-100 py-2 rounded-full text-xs font-bold">🔖 Saved</button>
-      <button class="flex-1 bg-gray-100 py-2 rounded-full text-xs font-bold">📤 Share</button>
-      <button class="flex-1 bg-[#E8F5E9] text-[#0A5C36] py-2 rounded-full text-xs font-bold">👨‍👩‍👧 Uliza Mzazi</button>
-    </div>
-  </div>
+<div class="card">
+<div class="tabs"><button class="tab active">Type Question</button><button class="tab" id="tabPhoto">Upload Photo</button></div>
+<div class="text-wrap"><textarea id="qInput" placeholder="Andika swali... e.g. Explain osmosis"></textarea><button class="mic-btn">🎤</button></div>
+<input type="file" id="photoInput" accept="image/*" style="display:none">
+<button class="btn-main" id="solveBtn">✦ Pata Jibu</button>
+<div id="resultArea"></div>
 </div>
-
-<!-- BOTTOM NAV - Better Color -->
-<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white border-t flex justify-around py-2 px-2">
-  <div class="flex flex-col items-center bg-[#E8F5E9] text-[#0A5C36] px-4 py-1 rounded-2xl"><span>🏠</span><span class="text-[10px] font-black">Home</span></div>
-  <div class="flex flex-col items-center opacity-50 p-1"><span>📄</span><span class="text-[10px]">Past Papers</span></div>
-  <div class="flex flex-col items-center opacity-50 p-1"><span>🔖</span><span class="text-[10px]">Saved</span></div>
-  <div class="flex flex-col items-center opacity-50 p-1"><span>👥</span><span class="text-[10px]">Parent</span></div>
-  <div class="flex flex-col items-center opacity-50 p-1"><span>🛒</span><span class="text-[10px]">Soko Bei</span></div>
-</div>
-
+<div class="bottom-nav"><div class="active">🏠<br>Home</div><div>📄<br>Past Papers</div><div>🔖<br>Saved</div><div>👥<br>Parent</div><div>🛒<br>Soko Bei</div></div>
 <script>
-let curSub='math'
-function selectSub(el,id){document.querySelectorAll('.subj').forEach(b=>{b.className='subj border-2 border-transparent p-3 rounded-[20px] bg-gray-50'});el.className='subj active bg-[#0A5C36] text-white border-2 border-[#0A5C36] p-3 rounded-[20px] scale-105';curSub=id}
-function setTab(t){
- if(t==='type'){document.getElementById('typeBox').classList.remove('hidden');document.getElementById('photoBox').classList.add('hidden');document.getElementById('tType').className='flex-1 bg-[#0A5C36] text-white py-2.5 rounded-full text-sm font-black';document.getElementById('tPhoto').className='flex-1 py-2.5 rounded-full text-sm font-bold opacity-60'}
- else{document.getElementById('typeBox').classList.add('hidden');document.getElementById('photoBox').classList.remove('hidden');document.getElementById('tPhoto').className='flex-1 bg-[#0A5C36] text-white py-2.5 rounded-full text-sm font-black';document.getElementById('tType').className='flex-1 py-2.5 rounded-full text-sm font-bold opacity-60'}
+let selectedSomo="Math";
+document.querySelectorAll('.somo').forEach(el=>{
+ el.addEventListener('click',()=>{
+  document.querySelectorAll('.somo').forEach(s=>s.classList.remove('selected'));
+  el.classList.add('selected'); selectedSomo=el.dataset.somo;
+ });
+});
+function getAnswer(q,somo){
+ const l=q.toLowerCase();
+ if(l.includes('osmosis')){
+  return {steps:[`1. Swali: ${q}`,`2. Somo: Biology / Science`], jibu:`OSMOSIS:\nNi mwendo wa maji kutoka sehemu yenye maji mengi (high concentration) kwenda sehemu yenye maji kidogo (low concentration) kupitia utando (semi-permeable membrane).\n\nMfano: Maji kuingia kwenye mizizi ya mmea kutoka ardhini.\n\nTypes: Endosmosis (ndani) na Exosmosis (nje).`};
+ }
+ if(l.includes('photosynthesis')){
+  return {steps:[`1. Swali: ${q}`,`2. Somo: Science`], jibu:`PHOTOSYNTHESIS: 6CO2 + 6H2O + Sunlight → C6H12O6 + 6O2\nMimea hutengeneza chakula kwa mwanga wa jua.`};
+ }
+ if(/^\s*\d+\s*[\+\-\*\/]\s*\d+/.test(q)){
+  try{
+   let expr=q.match(/[\d\+\-\*\/\(\)\. ]+/)[0];
+   let val=Function('return '+expr)();
+   return {steps:[`1. Swali: ${q}`,`2. Hesabu: ${expr}`], jibu:`Jibu: ${val}`};
+  }catch(e){}
+ }
+ return {steps:[`1. Swali: ${q}`,`2. Somo: ${somo}`,`3. Nimeelewa swali lako`], jibu:`Jibu la "${q}":\n\nHapa ndipo AI ya kweli itaunganishwa. Kwa sasa hii ni demo iliyofixwa — haionyeshi tena 2+2=4 kwa kila kitu!\n\nIli upate majibu ya kweli ya AI, tuunganishe API ya OpenAI/Meta AI. Niambie nikupe code ya API.`};
 }
-function previewPhoto(e){const img=document.getElementById('prev');img.src=URL.createObjectURL(e.target.files[0]);img.classList.remove('hidden')}
-function pataJibu(){
- const q=document.getElementById('q').value;
- const btn=document.getElementById('btn');btn.innerText='⏳ Inachambua...';btn.disabled=true;
- // FAKE AI - Replace with your real API later
- setTimeout(()=>{
-  document.getElementById('ans').classList.remove('hidden');
-  document.getElementById('steps').innerHTML=`<div class='bg-white p-3 rounded-xl'>1. Swali: ${q}</div><div class='bg-white p-3 rounded-xl'>2. Somo: ${curSub}</div><div class='bg-white p-3 rounded-xl'>3. Hesabu: 2+2 = 4</div>`;
-  document.getElementById('final').innerText='Jibu: 4';
-  btn.innerText='✦ Pata Jibu';btn.disabled=false;
- },1200);
-}
+document.getElementById('solveBtn').addEventListener('click',()=>{
+ const q=document.getElementById('qInput').value.trim();
+ if(!q){alert('Andika swali kwanza!');return;}
+ const ans=getAnswer(q,selectedSomo);
+ document.getElementById('resultArea').innerHTML=`<div class="answer-card"><h4>✅ Hatua kwa Hatua:</h4>${ans.steps.map(s=>`<div class="step">${s}</div>`).join('')}<div class="jibu">${ans.jibu}</div><div class="actions"><button>Saved</button><button>Share</button><button>Uliza Mzazi</button></div></div>`;
+ window.scrollTo(0,document.body.scrollHeight);
+});
+document.getElementById('tabPhoto').addEventListener('click',()=>document.getElementById('photoInput').click());
 </script>
 </body>
 </html>
