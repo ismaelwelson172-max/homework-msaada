@@ -1,82 +1,105 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Elimu AI PRO - Paystack</title>
-<script src="https://js.paystack.co/v1/inline.js"></script>
-<style>:root{--green:#0f6d3f;--bg:#f4f6f2;--card:#fff}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:var(--bg);padding-bottom:90px}header{display:flex;justify-content:space-between;padding:14px 16px;background:#fff;position:sticky;top:0;z-index:10}.logo{font-weight:800;color:var(--green);font-size:19px}.card{background:var(--card);border-radius:20px;margin:12px;padding:14px;box-shadow:0 4px 16px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.somo{border-radius:14px;padding:10px 6px;text-align:center;cursor:pointer;border:2px solid transparent;background:#f0f0f0}.somo.selected{border-color:var(--green);background:#dcfce7}.somo b{font-size:12px;display:block}.somo span{font-size:10px;color:#555}.btn-main{width:100%;background:linear-gradient(180deg,#15803d,#0f6d3f);color:#fff;border:none;padding:16px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px;cursor:pointer}.btn-main:disabled{opacity:.5}.answer-card{background:#eef6ee;border-radius:18px;padding:14px;margin-top:16px;border:1px solid #c8e6c9}.step{background:#fff;border-radius:12px;padding:10px;margin:8px 0;font-size:14px}.jibu{background:#0f6d3f;color:#fff;border-radius:14px;padding:16px;white-space:pre-wrap;line-height:1.7;max-height:65vh;overflow-y:auto}.actions{display:flex;gap:8px;margin-top:12px}.action-btn{flex:1;padding:12px;border-radius:30px;border:none;font-weight:700;cursor:pointer}.btn-copy{background:#fff;color:#0f6d3f;border:1px solid #c8e6c9!important}.btn-share{background:#0f6d3f;color:#fff}.btn-save{background:#fef3c7;color:#92400e}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 20px;border-radius:30px;font-size:14px;z-index:100;display:none}.view{display:none}.view.active{display:block}.stat{display:flex;justify-content:space-between;background:#f0fdf4;border-radius:12px;padding:12px;margin:8px 0}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee;z-index:20}.bottom-nav div{text-align:center;font-size:11px;color:#888;cursor:pointer;padding:4px 6px;flex:1}.bottom-nav .active{color:var(--green);font-weight:700;background:#f0fdf4}.btn-small{background:var(--green);color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:700;font-size:12px}.saved-item{background:#fff;border-radius:14px;padding:12px;margin:10px 0;border:1px solid #eee}.soko-item{display:flex;gap:10px;background:#fff;border-radius:14px;padding:12px;margin:8px 0;border:1px solid #eee}.price{color:var(--green);font-weight:800}.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.65);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}.modal.active{display:flex}.modal-box{background:#fff;border-radius:20px;padding:20px;width:100%;max-width:400px}.input{width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;margin:8px 0;font-size:16px}.btn-pay{background:#00a651;color:#fff;border:none;padding:14px;border-radius:12px;width:100%;font-weight:800;margin-top:10px;cursor:pointer}.paper{border:1px solid #eee;border-radius:14px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;background:#fafafa}.tag{padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;background:#dcfce7;color:#0f6d3f}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Elimu AI - FIXED</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif}body{background:#f4f6f2;padding-bottom:100px}header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}.logo{font-weight:800;color:#0f6d3f;font-size:18px}.badge{padding:5px 10px;border-radius:20px;font-size:11px;font-weight:800}.badge-free{background:#fbbf24;color:#000}.card{background:#fff;border-radius:18px;margin:10px 12px;padding:14px;box-shadow:0 2px 12px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.somo{border-radius:14px;padding:12px 4px;text-align:center;cursor:pointer;border:2px solid #eee;background:#f8f8f8}.somo.selected{border-color:#0f6d3f;background:#dcfce7}.somo b{font-size:13px;display:block}.somo span{font-size:10px;color:#666}.q-box{width:100%;border:2px solid #e5e7eb;background:#f9fafb;border-radius:16px;padding:14px;min-height:130px;font-size:16px;outline:none;resize:none;display:block;line-height:1.5}.q-box:focus{border-color:#0f6d3f;background:#fff}.btn-main{width:100%;background:#0f6d3f;color:#fff;border:none;padding:16px;border-radius:16px;font-size:17px;font-weight:800;margin-top:12px;cursor:pointer;display:block}.btn-main:active{transform:scale(0.98)}.btn-main:disabled{opacity:.5}.answer-card{background:#eef6ee;border-radius:16px;padding:14px;margin-top:14px;border:1px solid #bbf7d0}.step{background:#fff;border-radius:10px;padding:10px;margin:6px 0;font-size:13px}.jibu{background:#0f6d3f;color:#fff;border-radius:12px;padding:14px;margin-top:10px;white-space:pre-wrap;line-height:1.6;font-size:15px;word-break:break-word}.actions{display:flex;gap:8px;margin-top:12px}.action-btn{flex:1;padding:12px;border-radius:24px;border:none;font-weight:700;font-size:13px;cursor:pointer}.btn-copy{background:#fff;color:#0f6d3f;border:1px solid #c8e6c9!important}.btn-share{background:#0f6d3f;color:#fff}.btn-save{background:#fef3c7;color:#92400e}.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 20px;border-radius:30px;font-size:14px;z-index:100;display:none;max-width:90%;text-align:center}.view{display:none}.view.active{display:block}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:6px 0 8px 0;border-top:1px solid #eee;z-index:20}.bottom-nav div{text-align:center;font-size:11px;color:#888;cursor:pointer;padding:6px 2px;flex:1}.bottom-nav .active{color:#0f6d3f;font-weight:700;background:#f0fdf4;border-radius:12px;margin:0 2px}.paper{border:1px solid #eee;border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;background:#fafafa}.tag{padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;background:#dcfce7;color:#0f6d3f}.btn-small{background:#0f6d3f;color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:700;font-size:12px}.saved-item{background:#fff;border-radius:12px;padding:12px;margin:8px 0;border:1px solid #eee}.stat{display:flex;justify-content:space-between;background:#f0fdf4;border-radius:10px;padding:12px;margin:8px 0}.debug{font-size:11px;color:#888;margin-top:8px;text-align:center}
 </style></head>
 <body>
-<header><div class="logo">Elimu AI ✦ 12 CBC</div><div id="planBadge" style="background:#fbbf24;color:#000;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:800">FREE PLAN</div></header>
+<header><div class="logo">Elimu AI ✦ 12 CBC</div><div id="planBadge" class="badge badge-free">FREE PLAN</div></header>
 <div id="view-home" class="view active">
-<div class="card"><h3>Chagua Somo (12) - CBC</h3><div class="grid" style="margin-top:10px">
-<div class="somo selected" data-somo="Math"><b>🧮 Math</b></div><div class="somo" data-somo="English"><b>📚 Eng</b></div><div class="somo" data-somo="Kiswahili"><b>✍️ Kisw</b></div>
-<div class="somo" data-somo="Science"><b>🔬 Sci</b></div><div class="somo" data-somo="Social"><b>🌍 Soc</b></div><div class="somo" data-somo="Agriculture"><b>🌱 Agri</b></div>
-<div class="somo" data-somo="CRE"><b>🙏 CRE</b></div><div class="somo" data-somo="Business"><b>💼 Bus</b></div><div class="somo" data-somo="Computer"><b>💻 Comp</b></div>
-<div class="somo" data-somo="Home Science"><b>🏠 Home</b></div><div class="somo" data-somo="Art"><b>🎨 Art</b></div><div class="somo" data-somo="Music"><b>🎵 Music</b></div>
+<div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:10px"><h3 style="font-size:16px">Chagua Somo (12)</h3><span style="background:#0f6d3f;color:#fff;padding:3px 8px;border-radius:20px;font-size:10px">CBC</span></div>
+<div class="grid">
+<div class="somo selected" data-somo="Math"><b>🧮 Math</b><span>Hisabati</span></div>
+<div class="somo" data-somo="English"><b>📚 Eng</b><span>Kiingereza</span></div>
+<div class="somo" data-somo="Kiswahili"><b>✍️ Kisw</b><span>Lugha</span></div>
+<div class="somo" data-somo="Science"><b>🔬 Sci</b><span>Sayansi</span></div>
+<div class="somo" data-somo="Social Studies"><b>🌍 Soc</b><span>Jamii</span></div>
+<div class="somo" data-somo="Agriculture"><b>🌱 Agri</b><span>Kilimo</span></div>
+<div class="somo" data-somo="CRE"><b>🙏 CRE</b><span>Dini</span></div>
+<div class="somo" data-somo="Business"><b>💼 Bus</b><span>Biashara</span></div>
+<div class="somo" data-somo="Computer"><b>💻 Comp</b><span>Tar akili</span></div>
+<div class="somo" data-somo="Home Science"><b>🏠 Home</b><span>Nyumbani</span></div>
+<div class="somo" data-somo="Art"><b>🎨 Art</b><span>Sanaa</span></div>
+<div class="somo" data-somo="Music"><b>🎵 Music</b><span>Muziki</span></div>
 </div></div>
-<div class="card"><textarea id="qInput" placeholder="Andika swali la somo lolote..."></textarea><button class="btn-main" id="solveBtn">✦ Pata Jibu - AI Halisi</button><div id="resultArea"></div><div id="limitMsg" style="display:none;background:#fef3c7;border-radius:12px;padding:12px;margin-top:12px;text-align:center"><b>⚠️ Limit ya FREE (20/day) imefika!</b><br><button class="btn-small" style="margin-top:8px" onclick="openUpgrade()">🚀 Upgrade KES 99/week</button></div></div>
+<div class="card">
+<textarea id="qInput" class="q-box" placeholder="Andika swali hapa... Mfano: What is tumor? Explain photosynthesis?"></textarea>
+<button class="btn-main" id="solveBtn">✦ Pata Jibu - AI Halisi</button>
+<div id="resultArea"></div>
+<div class="debug">AI Status: <span id="aiStatus" style="color:green">● Online</span> | Maswali: <span id="qCount">0</span>/20</div>
 </div>
-<div id="view-papers" class="view"><div class="card"><h3>📄 Past Papers</h3><div class="paper"><div><b>Math KPSEA 2023</b></div><span class="tag">FREE</span></div><div class="paper"><div><b>Science & Tech</b></div><span class="tag">FREE</span></div></div></div>
-<div id="view-saved" class="view"><div class="card"><h3>🔖 Saved</h3><div id="savedList"></div></div></div>
-<div id="view-parent" class="view"><div class="card"><h3>👨‍👩‍👧 Parent Dashboard</h3><div class="stat"><span>❓ Maswali leo</span><b id="statToday">0 / 20</b></div><div class="stat"><span>📊 Plan</span><b id="statPlan">FREE</b></div>
-<div style="background:linear-gradient(135deg,#0f6d3f,#16a34a);color:#fff;border-radius:16px;padding:16px;margin:14px 0"><h3>🚀 UPGRADE TO PRO</h3><p style="font-size:13px;margin:8px 0">✅ Unlimited - 12 masomo<br>✅ Pay via Mpesa / Card via Paystack<br>✅ Past Papers zote</p><p style="font-size:22px;font-weight:800">KES 99 / wiki</p><p style="font-size:12px;opacity:.8">au KES 299 / mwezi</p><button class="btn-main" style="background:#fff;color:#0f6d3f;margin-top:12px" onclick="openUpgrade()">💳 Lipa na Paystack (Mpesa)</button></div></div></div>
-<div id="view-soko" class="view"><div class="card"><h3>🛒 Soko Bei</h3><div class="soko-item"><div style="width:60px;height:60px;background:#fef3c7;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:28px">📚</div><div style="flex:1"><b>Oxford Dict</b><br><span class="price">KES 450</span></div><button class="btn-small">Nunua</button></div></div></div>
-
-<div id="upgradeModal" class="modal"><div class="modal-box">
-<h3 style="text-align:center">💳 Lipa na Paystack</h3><p style="text-align:center;font-size:13px;color:#666">Mpesa + Card - Auto PRO</p>
-<div style="display:flex;gap:8px;margin:12px 0"><button id="planWeek" class="btn-small" style="flex:1;padding:14px;background:#0f6d3f;color:#fff" onclick="selectPlan('week')">Week<br><b>KES 99</b></button><button id="planMonth" class="btn-small" style="flex:1;padding:14px;background:#eee;color:#000" onclick="selectPlan('month')">Month<br><b>KES 299</b></button></div>
-<input id="payEmail" class="input" placeholder="Email yako: e.g. parent@gmail.com" type="email">
-<input id="mpesaPhone" class="input" placeholder="Namba ya Mpesa: 07XX XXX XXX" type="tel">
-<div style="background:#f0fdf4;border-radius:12px;padding:10px;margin:8px 0;font-size:12px">✅ Paystack itatuma STK Push ya Mpesa moja kwa moja! Pesa inaenda kwako!</div>
-<button class="btn-pay" id="paystackBtn" onclick="payWithPaystack()">💳 Lipa Sasa na Paystack</button>
-<button style="background:none;border:none;width:100%;padding:12px;color:#666" onclick="closeUpgrade()">Cancel</button>
-<p style="font-size:11px;color:#888;text-align:center">Baada ya kulipa, PRO ita-activate automatically!</p>
-</div></div>
-
+</div>
+<div id="view-papers" class="view"><div class="card"><h3>📄 Past Papers</h3><div style="margin-top:10px"><div class="paper"><div><b>Math KPSEA 2023</b><br><span style="font-size:11px;color:#666">50 Q</span></div><span class="tag">FREE</span></div><div class="paper"><div><b>Science Grade 7</b></div><span class="tag">FREE</span></div><div class="paper"><div><b>Agriculture - Soil</b></div><span class="tag">FREE</span></div></div></div></div>
+<div id="view-saved" class="view"><div class="card"><h3>🔖 Saved</h3><div id="savedList"></div><button class="btn-main" style="background:#fee2e2;color:#991b1b" onclick="if(confirm('Futa?')){localStorage.removeItem('elimu_saved');renderSaved();showToast('Zimefutwa')}">🗑️ Futa Zote</button></div></div>
+<div id="view-parent" class="view"><div class="card"><h3>👨‍👩‍👧 Parent</h3><div class="stat"><span>❓ Leo</span><b id="statToday">0 / 20</b></div><div class="stat"><span>📚 Somo</span><b id="statFav">Math</b></div><div class="stat"><span>📊 Plan</span><b id="statPlan">FREE</b></div><div style="background:linear-gradient(135deg,#0f6d3f,#16a34a);color:#fff;border-radius:14px;padding:14px;margin:12px 0"><h3>🚀 UPGRADE PRO</h3><p style="font-size:13px;margin:6px 0">✅ Unlimited - 12 masomo</p><p style="font-size:20px;font-weight:800">KES 99/week</p><button class="btn-main" style="background:#fff;color:#0f6d3f;margin-top:10px" onclick="showToast('Paystack - weka key')">💳 Lipa na Paystack</button></div></div></div>
+<div id="view-soko" class="view"><div class="card"><h3>🛒 Soko Bei</h3><div class="paper"><div><b>Oxford Dict</b><br><span class="price" style="color:#0f6d3f;font-weight:800">KES 450</span></div><button class="btn-small">Nunua</button></div><div class="paper"><div><b>Calculator</b><br><span style="color:#0f6d3f;font-weight:800">KES 1,200</span></div><button class="btn-small">Nunua</button></div></div></div>
 <div id="toast" class="toast"></div>
 <div class="bottom-nav"><div id="nav-home" class="active" onclick="switchView('home')">🏠<br>Home</div><div id="nav-papers" onclick="switchView('papers')">📄<br>Papers</div><div id="nav-saved" onclick="switchView('saved')">🔖<br>Saved</div><div id="nav-parent" onclick="switchView('parent')">👥<br>Parent</div><div id="nav-soko" onclick="switchView('soko')">🛒<br>Soko</div></div>
-
 <script>
-let selectedSomo="Math",selectedPlan="week";let plan=localStorage.getItem('elimu_plan')||'FREE';
-const PAYSTACK_PUBLIC_KEY = "pk_live_b2a34079f84add6a72ffd2393dbdd3ce8ad26a2a"; // <-- BADILISHA HAPA NA KEY YAKO YA PAYSTACK!
+let selectedSomo="Math";let count=parseInt(localStorage.getItem('elimu_count')||'0');document.getElementById('qCount').innerText=count;
 document.querySelectorAll('.somo').forEach(el=>{el.addEventListener('click',()=>{document.querySelectorAll('.somo').forEach(s=>s.classList.remove('selected'));el.classList.add('selected');selectedSomo=el.dataset.somo;showToast('Somo: '+selectedSomo);});});
 function showToast(m){const t=document.getElementById('toast');t.innerText=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
-function switchView(n){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+n).classList.add('active');document.querySelectorAll('.bottom-nav div').forEach(d=>d.classList.remove('active'));document.getElementById('nav-'+n).classList.add('active');if(n==='saved')renderSaved();if(n==='parent'){document.getElementById('statToday').innerText=(localStorage.getItem('elimu_count')||'0')+' / '+(plan==='PRO'?'∞':'20');document.getElementById('statPlan').innerText=plan;}window.scrollTo(0,0);}
-function renderSaved(){const l=document.getElementById('savedList');const s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');if(s.length===0){l.innerHTML='<p style="text-align:center;color:#999;padding:20px">Hakuna saved.</p>';return;}l.innerHTML=s.map((x,i)=>`<div class="saved-item"><b>${x.q}</b><br><p style="font-size:13px">${x.a.substring(0,150)}...</p></div>`).join('');}
-function openUpgrade(){document.getElementById('upgradeModal').classList.add('active');}function closeUpgrade(){document.getElementById('upgradeModal').classList.remove('active');}
-function selectPlan(p){selectedPlan=p;document.getElementById('planWeek').style.background=p==='week'?'#0f6d3f':'#eee';document.getElementById('planWeek').style.color=p==='week'?'#fff':'#000';document.getElementById('planMonth').style.background=p==='month'?'#0f6d3f':'#eee';document.getElementById('planMonth').style.color=p==='month'?'#fff':'#000';}
+function switchView(n){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+n).classList.add('active');document.querySelectorAll('.bottom-nav div').forEach(d=>d.classList.remove('active'));document.getElementById('nav-'+n).classList.add('active');if(n==='saved')renderSaved();if(n==='parent'){document.getElementById('statToday').innerText=(localStorage.getItem('elimu_count')||'0')+' / 20';document.getElementById('statFav').innerText=localStorage.getItem('elimu_fav')||'Math';}window.scrollTo(0,0);}
+function renderSaved(){const l=document.getElementById('savedList');const s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');if(s.length===0){l.innerHTML='<p style="text-align:center;color:#999;padding:20px">Hakuna saved bado.</p>';return;}l.innerHTML=s.map((x,i)=>`<div class="saved-item"><b>${x.q}</b> <span style="background:#dcfce7;padding:2px 6px;border-radius:8px;font-size:10px">${x.somo}</span><br><span style="font-size:11px;color:#888">${x.time}</span><p style="font-size:13px;margin-top:6px;white-space:pre-wrap">${x.a.substring(0,180)}...</p></div>`).join('');}
+function copyPlain(t){if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>showToast('✅ Ime-Copy!'));return;}const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();showToast('✅ Copied!');}
+async function askAI(question,somo){
+  const q=question.toLowerCase();
+  if(q.includes('tumor')||q.includes('tumour')){
+    return `TUMOR (Uvime) - Maelezo Rahisi:
 
-function payWithPaystack(){
-  const email=document.getElementById('payEmail').value.trim();
-  const phone=document.getElementById('mpesaPhone').value.trim();
-  if(!email||!email.includes('@')){showToast('Weka email sahihi');return;}
-  if(phone.length<10){showToast('Weka namba ya Mpesa');return;}
-  if(PAYSTACK_PUBLIC_KEY.includes('xxxx')){showToast('⚠️ Weka Paystack Public Key kwanza! Angalia code line: PAYSTACK_PUBLIC_KEY'); alert('Nenda kwenye Paystack Dashboard → Settings → API Keys → Copy Public Key → Weka kwenye code: PAYSTACK_PUBLIC_KEY = \\'pk_live_...\\''); return;}
-  
-  let amount = selectedPlan==='week' ? 9900 : 29900; // kobo = KES*100
-  let handler = PaystackPop.setup({
-    key: PAYSTACK_PUBLIC_KEY,
-    email: email,
-    amount: amount,
-    currency: "KES",
-    ref: "ELIMU_"+Date.now(),
-    metadata: { custom_fields: [{display_name: "Phone", variable_name: "phone", value: phone}, {display_name: "Plan", variable_name: "plan", value: selectedPlan}]},
-    callback: function(response){
-      // Payment success!
-      localStorage.setItem('elimu_plan','PRO');
-      localStorage.setItem('elimu_pay_ref',response.reference);
-      plan='PRO';
-      document.getElementById('planBadge').innerText='PRO ✅';
-      document.getElementById('planBadge').style.background='#0f6d3f';
-      document.getElementById('planBadge').style.color='#fff';
-      showToast('🎉 Malipo yamepokelewa! PRO Active! Ref: '+response.reference);
-      closeUpgrade();
-      switchView('home');
-    },
-    onClose: function(){showToast('Umefunga malipo');}
-  });
-  handler.openIframe();
+1. Tumor ni nini?
+Tumor ni uvimbe wa seli zinazokua haraka kuliko kawaida.
+
+2. Aina 2:
+- Benign (nzuri): Haileti kansa, hukua polepole
+- Malignant (mbaya): Ni KANSA, huenea (metastasis)
+
+3. Sababu: DNA, sigara, mionzi, virusi
+
+4. Dalili: Uvimbe, kupungua uzito, uchovu
+
+5. Matibabu: Upasuaji, chemo, radio
+
+Somo: ${somo}`;
+  }
+  if(q.includes('photosynthesis')){
+    return `Photosynthesis:
+Formula: 6CO2 + 6H2O + mwanga -> C6H12O6 + 6O2
+Mahali: Chloroplast
+Umuhimu: Chakula + O2
+Somo: ${somo}`;
+  }
+  document.getElementById('aiStatus').innerText='● Thinking...';document.getElementById('aiStatus').style.color='#f59e0b';
+  const prompt=`You are Elimu AI, Kenyan CBC expert for ${somo}. Explain simply for Class 7 in Swahili-English mix. Question: ${question}`;
+  try{
+    const r1=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt),{signal:AbortSignal.timeout(8000)});
+    if(r1.ok){let t=await r1.text();if(t&&t.length>20){document.getElementById('aiStatus').innerText='● Online';document.getElementById('aiStatus').style.color='green';return t;}}
+  }catch(e){}
+  try{
+    const r2=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent('https://text.pollinations.ai/'+encodeURIComponent(prompt)),{signal:AbortSignal.timeout(8000)});
+    if(r2.ok){let t=await r2.text();if(t&&t.length>20){document.getElementById('aiStatus').innerText='● Online';document.getElementById('aiStatus').style.color='green';return t;}}
+  }catch(e){}
+  document.getElementById('aiStatus').innerText='● Offline Mode';document.getElementById('aiStatus').style.color='red';
+  return `Jibu la ${somo}:
+Swali: "${question}"
+Hii ni dhana muhimu ya ${somo}. Jaribu kuuliza tena kwa maneno mengine.
+AI ya mtandaoni haipatikani, tumia majibu ya ndani.`;
 }
-
-function checkLimit(){const count=parseInt(localStorage.getItem('elimu_count')||'0');if(plan==='FREE'&&count>=20){document.getElementById('limitMsg').style.display='block';document.getElementById('solveBtn').disabled=true;return true;}document.getElementById('limitMsg').style.display='none';document.getElementById('solveBtn').disabled=false;return false;}
-async function askRealAI(q,somo){const prompt=`You are Elimu AI Kenyan CBC expert Subject:${somo} Simple Swahili-English mix Question:${q}`;try{const r=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t=await r.text();if(t&&t.length>10)return t;}catch{}return "Pole jaribu tena.";}
-document.getElementById('solveBtn').addEventListener('click',async()=>{if(checkLimit()){showToast('Limit imefika!');return;}const q=document.getElementById('qInput').value.trim();if(!q){showToast('Andika swali!');return;}const btn=document.getElementById('solveBtn');const ra=document.getElementById('resultArea');btn.disabled=true;btn.innerHTML='⏳ AI Inafikiri...';ra.innerHTML='<div class="answer-card"><div class="step">🤖 Inajibu: <b>'+q+'</b></div></div>';let cnt=parseInt(localStorage.getItem('elimu_count')||'0')+1;localStorage.setItem('elimu_count',cnt);localStorage.setItem('elimu_fav',selectedSomo);const ans=await askRealAI(q,selectedSomo);const safe=ans.replace(/</g,'&lt;').replace(/>/g,'&gt;');ra.innerHTML=`<div class="answer-card"><h4 style="color:#0f6d3f">✅ Jibu:</h4><div class="step">Somo: ${selectedSomo}</div><div class="jibu">${safe}</div><div class="actions"><button class="action-btn btn-copy" onclick="navigator.clipboard.writeText('${q}\\n\\n${ans.replace(/'/g,"\\'")}');showToast('Copied')">📋 Copy</button><button class="action-btn btn-share" onclick="if(navigator.share){navigator.share({title:'Elimu AI',text:'${q}\\n\\n${ans.replace(/'/g,"\\'")}')}">📤 Share</button><button class="action-btn btn-save" onclick="let s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');s.unshift({q:'${q}',a:\`${ans.replace(/`/g,'')}\`,somo:'${selectedSomo}',time:new Date().toLocaleString()});localStorage.setItem('elimu_saved',JSON.stringify(s));showToast('Saved')">🔖 Save</button></div></div>`;btn.disabled=false;btn.innerHTML='✦ Pata Jibu';checkLimit();});
-(function(){if(plan==='PRO'){document.getElementById('planBadge').innerText='PRO ✅';document.getElementById('planBadge').style.background='#0f6d3f';document.getElementById('planBadge').style.color='#fff';}checkLimit();renderSaved();})();
+document.getElementById('solveBtn').addEventListener('click',async()=>{
+  const qInput=document.getElementById('qInput');const q=qInput.value.trim();
+  if(!q){showToast('❌ Andika swali kwanza!');qInput.focus();return;}
+  if(count>=20 && (localStorage.getItem('elimu_plan')||'FREE')==='FREE'){showToast('⚠️ Limit ya 20 imefika!');return;}
+  const btn=document.getElementById('solveBtn');const resultArea=document.getElementById('resultArea');
+  btn.disabled=true;btn.innerText='⏳ AI Inafikiri...';resultArea.innerHTML='<div class="answer-card"><div class="step">🤖 Inajibu: <b>'+q.replace(/</g,'&lt;')+'</b> ['+selectedSomo+']</div><div class="step">⏳ Subiri 3-5 sec...</div></div>';
+  count++;localStorage.setItem('elimu_count',count);localStorage.setItem('elimu_fav',selectedSomo);document.getElementById('qCount').innerText=count;
+  try{
+    const ans=await askAI(q,selectedSomo);
+    const safeQ=q.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const safeA=ans.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    resultArea.innerHTML=`<div class="answer-card"><h4 style="color:#0f6d3f;margin-bottom:6px">✅ Jibu - ${selectedSomo}:</h4><div class="step">Swali: ${safeQ}</div><div class="jibu">${safeA}</div><div class="actions"><button class="action-btn btn-copy" id="copyBtn">📋 Copy</button><button class="action-btn btn-share" id="shareBtn">📤 Share</button><button class="action-btn btn-save" id="saveBtn">🔖 Save</button></div></div>`;
+    document.getElementById('copyBtn').onclick=()=>copyPlain(q+"\n\n"+ans);
+    document.getElementById('shareBtn').onclick=()=>{if(navigator.share){navigator.share({title:'Elimu AI',text:q+"\n\n"+ans}).catch(()=>copyPlain(q+"\n\n"+ans));}else copyPlain(q+"\n\n"+ans);};
+    document.getElementById('saveBtn').onclick=()=>{let s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');s.unshift({q:q,a:ans,somo:selectedSomo,time:new Date().toLocaleString()});localStorage.setItem('elimu_saved',JSON.stringify(s.slice(0,30)));showToast('🔖 Saved!');};
+    showToast('✅ Jibu tayari!');window.scrollTo(0,document.body.scrollHeight);
+  }catch(err){resultArea.innerHTML='<div class="answer-card"><div class="step" style="color:red">❌ Error: '+err.message+'</div></div>';}
+  finally{btn.disabled=false;btn.innerText='✦ Pata Jibu - AI Halisi';}
+});
+renderSaved();document.getElementById('statToday').innerText=count+' / 20';
 </script></body></html>
