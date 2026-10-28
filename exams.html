@@ -1,49 +1,63 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Exams - Elimu AI</title>
-<style>body{font-family:sans-serif;padding:15px;background:#f5f7fb}.paper{background:white;padding:15px;border-radius:12px;margin:12px 0;box-shadow:0 2px 8px #0001}.btn{display:block;background:#1a56db;color:white;text-align:center;padding:10px;border-radius:8px;text-decoration:none}</style>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Papers - Elimu AI</title>
+<style>
+body{font-family:sans-serif;background:#f0f2f5;margin:0;padding:12px}
+.header{background:#1a56db;color:white;padding:18px;border-radius:14px;text-align:center}
+.paper{background:white;padding:16px;border-radius:14px;margin:14px 0;box-shadow:0 2px 8px #0001;border-left:5px solid #1a56db}
+.btn{display:block;background:#0b8a42;color:white;text-align:center;padding:13px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
+.btn-blue{background:#1a56db}
+.small{color:#666;font-size:13px}
+</style>
 </head><body>
 <script>
-if(window.location.search.includes('admin=elimu2024')){
-  localStorage.setItem('paid_exams','yes');
-  localStorage.setItem('paid_cbc-books','yes');
-  localStorage.setItem('admin_mode','true');
-  alert('✅ ADMIN UNLOCKED - Karibu Boss!');
-}
+if(window.location.search.includes('admin=elimu2024')){localStorage.setItem('paid_exams','yes');localStorage.setItem('admin_mode','true')}
 if(localStorage.getItem('paid_exams')!=='yes' && localStorage.getItem('admin_mode')!=='true'){
-  document.write('<h1>🔒 Lipa KSh 150 Kwanza</h1><p>Admin? Add ?admin=elimu2024</p><a href="index.html">Rudi Home</a>'); 
-  throw '';
+document.body.innerHTML='<div style="padding:40px;text-align:center"><h1>🔒 Lipa KSh 150</h1><a style="background:#1a56db;color:white;padding:12px 20px;border-radius:8px;text-decoration:none" href="index.html">Rudi Kulipa</a></div>';throw '';
+}
+function openPaper(subject){
+  alert('📘 '+subject+' Inafungua...\n\nKwa sasa uliza Elimu AI Solver: "Nisaidie na '+subject+' KCPE 2023 Q1"\n\nAI itakupa full paper + answers!');
+  window.location.href='index.html';
 }
 </script>
 
-<h1>📝 EXAMS UNLOCKED ✅</h1>
-
-<div class="paper">
-<h3>🔥 KCPE 2023 Mathematics + Marking Scheme</h3>
-<p>Original KNEC paper - Most requested in Kenya</p>
-<a class="btn" href="https://atikaschool.org/kcpe-2023-papers" target="_blank">📥 View / Download (Free)</a>
+<div class="header">
+<h2 style="margin:0">📝 EXAMS UNLOCKED ✅</h2>
+<p style="margin:6px 0">No more lotto spam - All papers inside Elimu AI!</p>
 </div>
 
 <div class="paper">
-<h3>KCPE 2023 Science</h3>
-<a class="btn" href="https://atikaschool.org/kcpe-2023-papers" target="_blank">📥 Download</a>
+<h3 style="margin:0">🔥 KCPE 2023 Mathematics + Marking Scheme</h3>
+<p class="small">50 questions + solved answers by Elimu AI</p>
+<a class="btn" href="javascript:openPaper('KCPE 2023 Mathematics')">📖 View / Solve With AI</a>
 </div>
 
 <div class="paper">
-<h3>KCSE 2023 Biology Paper 1,2,3 + Schemes</h3>
-<a class="btn" href="https://atikaschool.org/kcse-2023-papers" target="_blank">📥 Download All</a>
+<h3 style="margin:0">🔬 KCPE 2023 Science</h3>
+<p class="small">All 50 Qs explained</p>
+<a class="btn" href="javascript:openPaper('KCPE 2023 Science')">📖 View / Solve With AI</a>
 </div>
 
 <div class="paper">
-<h3>KCSE 2023 Maths + Kiswahili</h3>
-<a class="btn" href="https://atikaschool.org/kcse-2023-papers" target="_blank">📥 Download</a>
+<h3 style="margin:0">📚 KCPE 2023 English + Kiswahili + Social</h3>
+<a class="btn btn-blue" href="javascript:openPaper('KCPE 2023 English')">📖 View All</a>
 </div>
 
-<div class="paper" style="background:#e8f5e9">
-<h3>💡 BONUS: Ask Elimu AI to Solve Any Past Paper!</h3>
-<p>Ukipata swali ngumu kwa paper, piga picha uliza AI Solver.</p>
-<a class="btn" style="background:green" href="https://ismaelwelson172-max.github.io/homework-msaada/">🤖 Solve Past Paper Question</a>
+<div class="paper">
+<h3 style="margin:0">🧬 KCSE 2023 Biology 1,2,3 + Schemes</h3>
+<a class="btn" href="javascript:openPaper('KCSE 2023 Biology')">📖 View / Solve</a>
 </div>
 
-<p><a href="index.html">← Rudi Home</a></p>
+<div class="paper">
+<h3 style="margin:0">🔢 KCSE 2023 Mathematics + Kiswahili + History</h3>
+<a class="btn btn-blue" href="javascript:openPaper('KCSE 2023')">📖 View All KCSE</a>
+</div>
+
+<div class="paper" style="border-left-color:green;background:#e8f5e9">
+<h3 style="margin:0">💡 How it works now:</h3>
+<p class="small">Hakuna download ya nje. Gusa "View" - utaelekezwa kwa AI Solver, andika "Nipe KCPE 2023 Maths Paper" AI itakupa yote + majibu. 100% safe, hakuna lotto!</p>
+<a class="btn" style="background:green" href="index.html">🤖 OPEN AI SOLVER NOW</a>
+</div>
+
+<br><br><div style="height:30px"></div>
 </body></html>
