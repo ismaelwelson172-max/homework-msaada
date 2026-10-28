@@ -1,95 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elimu AI - Homework Msaada</title>
-<style>
-:root{--green:#0f6d3f;--bg:#f4f6f2;--card:#fff}
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
-body{background:var(--bg);padding-bottom:90px}
-header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#fff;position:sticky;top:0}
-.logo{font-weight:800;color:var(--green);font-size:22px}
-.card{background:var(--card);border-radius:20px;margin:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.title-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.badge{background:var(--green);color:#fff;padding:5px 12px;border-radius:20px;font-size:12px}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.somo{border-radius:18px;padding:14px 8px;text-align:center;cursor:pointer;border:2px solid transparent}
-.somo.selected{border-color:var(--green);transform:scale(1.03)}
-.somo b{display:block;margin-top:4px;font-size:14px}
-.somo span{font-size:11px;color:#666}
-.math{background:#0f6d3f;color:#fff}.english{background:#f3e8ff}.kiswahili{background:#fef3c7}.science{background:#dcfce7}.sst{background:#fef9c3}.cre{background:#fce7f3}
-.tabs{display:flex;gap:8px;margin-bottom:12px}
-.tab{flex:1;padding:10px;border-radius:30px;border:none;font-weight:700;background:#eee}
-.tab.active{background:var(--green);color:#fff}
-textarea{width:100%;border:none;background:#f5f5f5;border-radius:16px;padding:14px;min-height:100px;font-size:16px;outline:none}
-.btn-main{width:100%;background:linear-gradient(180deg,#15803d,#0f6d3f);color:#fff;border:none;padding:16px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px}
-.answer-card{background:#eef6ee;border-radius:18px;padding:14px;margin-top:16px;border:1px solid #c8e6c9}
-.step{background:#fff;border-radius:12px;padding:10px;margin:8px 0;font-size:14px}
-.jibu{background:var(--green);color:#fff;border-radius:14px;padding:14px;text-align:center;font-weight:800;font-size:18px;margin-top:10px;white-space:pre-wrap}
-.actions{display:flex;gap:8px;margin-top:10px}
-.actions button{flex:1;border:none;padding:8px;border-radius:20px;background:#f0f0f0;font-weight:600}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee}
-.bottom-nav div{text-align:center;font-size:11px;color:#888}
-.bottom-nav .active{color:var(--green);font-weight:700}
-.text-wrap{position:relative}
-.mic-btn{position:absolute;right:10px;bottom:10px;background:#fff;border:none;width:36px;height:36px;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-</style>
-</head>
-<body>
-<header><div class="logo">Elimu AI ✦</div></header>
-<div class="card">
-<div class="title-row"><h3>Chagua Somo</h3><span class="badge">CBC • 8-4-4</span></div>
-<div class="grid" id="somoGrid">
-<div class="somo math selected" data-somo="Math"><b>Math</b><br><span>Hisabati</span></div>
-<div class="somo english" data-somo="English"><b>English</b><span>Kiingereza</span></div>
-<div class="somo kiswahili" data-somo="Kiswahili"><b>Kiswahili</b><span>Lugha</span></div>
-<div class="somo science" data-somo="Science"><b>Science</b><span>Sayansi</span></div>
-<div class="somo sst" data-somo="SST"><b>SST</b><span>Jamii</span></div>
-<div class="somo cre" data-somo="CRE"><b>CRE</b><span>Dini</span></div>
-</div>
-</div>
-<div class="card">
-<div class="tabs"><button class="tab active">Type Question</button><button class="tab" id="tabPhoto">Upload Photo</button></div>
-<div class="text-wrap"><textarea id="qInput" placeholder="Andika swali... e.g. Explain osmosis"></textarea><button class="mic-btn">🎤</button></div>
-<input type="file" id="photoInput" accept="image/*" style="display:none">
-<button class="btn-main" id="solveBtn">✦ Pata Jibu</button>
-<div id="resultArea"></div>
-</div>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Elimu AI - Real AI</title>
+<style>:root{--green:#0f6d3f;--bg:#f4f6f2;--card:#fff}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:var(--bg);padding-bottom:90px}header{display:flex;justify-content:space-between;padding:14px 16px;background:#fff;position:sticky;top:0}.logo{font-weight:800;color:var(--green);font-size:22px}.card{background:var(--card);border-radius:20px;margin:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.somo{border-radius:18px;padding:12px;text-align:center;cursor:pointer;border:2px solid transparent;background:#f0f0f0}.somo.selected{border-color:var(--green);background:#dcfce7}.tab{flex:1;padding:10px;border-radius:30px;border:none;font-weight:700;background:#eee}.tab.active{background:var(--green);color:#fff}.tabs{display:flex;gap:8px;margin-bottom:12px}textarea{width:100%;border:none;background:#f5f5f5;border-radius:16px;padding:14px;min-height:110px;font-size:16px;outline:none}.btn-main{width:100%;background:linear-gradient(180deg,#15803d,#0f6d3f);color:#fff;border:none;padding:16px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px;cursor:pointer}.btn-main:disabled{opacity:.6}.answer-card{background:#eef6ee;border-radius:18px;padding:14px;margin-top:16px;border:1px solid #c8e6c9}.step{background:#fff;border-radius:12px;padding:10px;margin:8px 0;font-size:14px}.jibu{background:var(--green);color:#fff;border-radius:14px;padding:14px;font-weight:600;margin-top:10px;white-space:pre-wrap;line-height:1.6}.loader{border:3px solid #c8e6c9;border-top:3px solid var(--green);border-radius:50%;width:24px;height:24px;animation:spin 1s linear infinite;display:inline-block}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee}.bottom-nav div{text-align:center;font-size:11px;color:#888}.bottom-nav .active{color:var(--green);font-weight:700}</style></head>
+<body><header><div class="logo">Elimu AI ✦ REAL AI</div></header>
+<div class="card"><div style="display:flex;justify-content:space-between"><h3>Chagua Somo</h3><span style="background:var(--green);color:#fff;padding:4px 10px;border-radius:20px;font-size:11px">AI LIVE ✅</span></div><div class="grid" id="somoGrid">
+<div class="somo selected" data-somo="General">All<br><span>Yote</span></div><div class="somo" data-somo="Math">Math</div><div class="somo" data-somo="Biology">Bio</div><div class="somo" data-somo="Kiswahili">Kiswa</div><div class="somo" data-somo="History">Hist</div><div class="somo" data-somo="English">Eng</div></div></div>
+<div class="card"><div class="tabs"><button class="tab active">Type Question</button><button class="tab" id="photoBtn">📷 Upload Photo</button></div><textarea id="qInput" placeholder="Andika swali LOLOTE... e.g. What is driving? Explain osmosis?"></textarea><input type="file" id="photoInput" accept="image/*" style="display:none"><button class="btn-main" id="solveBtn">✦ Pata Jibu - AI Halisi</button><div id="resultArea"></div></div>
 <div class="bottom-nav"><div class="active">🏠<br>Home</div><div>📄<br>Past Papers</div><div>🔖<br>Saved</div><div>👥<br>Parent</div><div>🛒<br>Soko Bei</div></div>
 <script>
-let selectedSomo="Math";
-document.querySelectorAll('.somo').forEach(el=>{
- el.addEventListener('click',()=>{
-  document.querySelectorAll('.somo').forEach(s=>s.classList.remove('selected'));
-  el.classList.add('selected'); selectedSomo=el.dataset.somo;
- });
-});
-function getAnswer(q,somo){
- const l=q.toLowerCase();
- if(l.includes('osmosis')){
-  return {steps:[`1. Swali: ${q}`,`2. Somo: Biology / Science`], jibu:`OSMOSIS:\nNi mwendo wa maji kutoka sehemu yenye maji mengi (high concentration) kwenda sehemu yenye maji kidogo (low concentration) kupitia utando (semi-permeable membrane).\n\nMfano: Maji kuingia kwenye mizizi ya mmea kutoka ardhini.\n\nTypes: Endosmosis (ndani) na Exosmosis (nje).`};
- }
- if(l.includes('photosynthesis')){
-  return {steps:[`1. Swali: ${q}`,`2. Somo: Science`], jibu:`PHOTOSYNTHESIS: 6CO2 + 6H2O + Sunlight → C6H12O6 + 6O2\nMimea hutengeneza chakula kwa mwanga wa jua.`};
- }
- if(/^\s*\d+\s*[\+\-\*\/]\s*\d+/.test(q)){
+let selectedSomo="General";
+document.querySelectorAll('.somo').forEach(el=>{el.addEventListener('click',()=>{document.querySelectorAll('.somo').forEach(s=>s.classList.remove('selected'));el.classList.add('selected');selectedSomo=el.dataset.somo;});});
+document.getElementById('photoBtn').addEventListener('click',()=>document.getElementById('photoInput').click());
+async function askRealAI(question,somo){
+  const prompt=`You are Elimu AI, Kenyan CBC homework helper. Subject: ${somo}. Explain in simple Swahili+English mix, step by step, Class 6-8 level. Question: ${question}`;
   try{
-   let expr=q.match(/[\d\+\-\*\/\(\)\. ]+/)[0];
-   let val=Function('return '+expr)();
-   return {steps:[`1. Swali: ${q}`,`2. Hesabu: ${expr}`], jibu:`Jibu: ${val}`};
-  }catch(e){}
- }
- return {steps:[`1. Swali: ${q}`,`2. Somo: ${somo}`,`3. Nimeelewa swali lako`], jibu:`Jibu la "${q}":\n\nHapa ndipo AI ya kweli itaunganishwa. Kwa sasa hii ni demo iliyofixwa — haionyeshi tena 2+2=4 kwa kila kitu!\n\nIli upate majibu ya kweli ya AI, tuunganishe API ya OpenAI/Meta AI. Niambie nikupe code ya API.`};
+    const res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));
+    if(!res.ok) throw new Error('fail');
+    return await res.text();
+  }catch(e){return "Pole, AI error. Jaribu tena. Swali: "+question;}
 }
-document.getElementById('solveBtn').addEventListener('click',()=>{
- const q=document.getElementById('qInput').value.trim();
- if(!q){alert('Andika swali kwanza!');return;}
- const ans=getAnswer(q,selectedSomo);
- document.getElementById('resultArea').innerHTML=`<div class="answer-card"><h4>✅ Hatua kwa Hatua:</h4>${ans.steps.map(s=>`<div class="step">${s}</div>`).join('')}<div class="jibu">${ans.jibu}</div><div class="actions"><button>Saved</button><button>Share</button><button>Uliza Mzazi</button></div></div>`;
- window.scrollTo(0,document.body.scrollHeight);
+document.getElementById('solveBtn').addEventListener('click',async()=>{
+  const q=document.getElementById('qInput').value.trim();
+  if(!q){alert('Andika swali!');return;}
+  const btn=document.getElementById('solveBtn');
+  btn.disabled=true;btn.innerHTML='⏳ AI Inafikiri...';
+  document.getElementById('resultArea').innerHTML='<div class="answer-card"><div class="step">🤖 Inajibu: '+q+'</div><div class="step">⏳ Subiri 3-5 sec...</div></div>';
+  const answer=await askRealAI(q,selectedSomo);
+  document.getElementById('resultArea').innerHTML=`<div class="answer-card"><h4>✅ Hatua kwa Hatua:</h4><div class="step">1. Swali: ${q}</div><div class="step">2. Somo: ${selectedSomo}</div><div class="jibu">${answer}</div></div>`;
+  btn.disabled=false;btn.innerHTML='✦ Pata Jibu - AI Halisi';
+  window.scrollTo(0,document.body.scrollHeight);
 });
-document.getElementById('tabPhoto').addEventListener('click',()=>document.getElementById('photoInput').click());
-</script>
-</body>
-</html>
+</script></body></html>
