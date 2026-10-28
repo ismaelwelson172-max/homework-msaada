@@ -3,6 +3,52 @@
 <style>*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:#f4f6f2;padding-bottom:100px}header{display:flex;justify-content:space-between;padding:12px 14px;background:#fff;position:sticky;top:0;z-index:10}.logo{font-weight:800;color:#0f6d3f;font-size:17px}.badge{padding:5px 10px;border-radius:20px;font-size:11px;font-weight:800}.badge-free{background:#fbbf24;color:#000}.badge-pro{background:#0f6d3f;color:#fff}.card{background:#fff;border-radius:18px;margin:10px 12px;padding:14px;box-shadow:0 2px 12px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.somo{border-radius:14px;padding:12px 4px;text-align:center;cursor:pointer;border:2px solid #eee;background:#f8f8f8}.somo.selected{border-color:#0f6d3f;background:#dcfce7}.somo b{font-size:12px;display:block}.q-box{width:100%;border:2px solid #0f6d3f;background:#fff;border-radius:16px;padding:16px;min-height:140px;font-size:16px;outline:none;resize:none}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.chip{background:#eef6ee;border:1px solid #bbf7d0;padding:8px 12px;border-radius:20px;font-size:12px;cursor:pointer;font-weight:600}.btn-main{width:100%;background:#0f6d3f;color:#fff;border:none;padding:18px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px;cursor:pointer}.jibu{background:#0f6d3f;color:#fff;border-radius:12px;padding:14px;margin-top:10px;white-space:pre-wrap;line-height:1.6;font-size:15px}.actions{display:flex;gap:8px;margin-top:12px}.action-btn{flex:1;padding:12px;border-radius:24px;border:none;font-weight:700;font-size:13px;cursor:pointer}.btn-copy{background:#fff;color:#0f6d3f;border:1px solid #c8e6c9!important}.btn-save{background:#fef3c7;color:#92400e}.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 20px;border-radius:30px;font-size:14px;z-index:100;display:none;max-width:90%;text-align:center}.view{display:none}.view.active{display:block}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:6px 0 8px;border-top:1px solid #eee;z-index:20}.bottom-nav div{text-align:center;font-size:11px;color:#888;cursor:pointer;padding:6px 2px;flex:1}.bottom-nav .active{color:#0f6d3f;font-weight:700;background:#f0fdf4;border-radius:12px}.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.65);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}.modal.active{display:flex}.modal-box{background:#fff;border-radius:20px;padding:20px;width:100%;max-width:400px}.input{width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;margin:8px 0;font-size:15px}.btn-pay{background:#00a651;color:#fff;border:none;padding:14px;border-radius:12px;width:100%;font-weight:800;margin-top:10px;cursor:pointer}.stat{display:flex;justify-content:space-between;background:#f0fdf4;border-radius:10px;padding:12px;margin:8px 0}.btn-small{background:#0f6d3f;color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:700;font-size:12px}
 </style></head>
 <body>
+  <!-- TIMER CLOCK - ELIMU AI -->
+<div id="top-clock" style="background:linear-gradient(90deg,#0b8a42,#1a56db);color:white;padding:8px 15px;display:flex;justify-content:space-between;align-items:center;font-family:sans-serif;border-radius:10px;margin:8px;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px #0003">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font-size:18px">⏰</span>
+    <span id="live-time" style="font-weight:bold;font-size:15px">--:--:--</span>
+    <span id="live-date" style="font-size:11px;opacity:0.9;margin-left:5px"></span>
+  </div>
+  <div style="display:flex;gap:6px;align-items:center">
+    <span style="font-size:11px">STUDY TIMER:</span>
+    <span id="study-timer" style="background:white;color:#0b8a42;padding:3px 8px;border-radius:20px;font-weight:bold;font-size:13px">00:00</span>
+    <button id="timer-btn" onclick="toggleTimer()" style="background:#ffcc00;border:none;padding:4px 8px;border-radius:15px;font-size:11px;font-weight:bold;cursor:pointer">▶ START</button>
+  </div>
+</div>
+
+<script>
+// LIVE CLOCK
+function updateClock(){
+  let now = new Date();
+  let time = now.toLocaleTimeString('en-KE',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+  let date = now.toLocaleDateString('en-KE',{weekday:'short',day:'numeric',month:'short'});
+  document.getElementById('live-time').textContent = time;
+  document.getElementById('live-date').textContent = date;
+}
+setInterval(updateClock,1000); updateClock();
+
+// STUDY TIMER
+let timerSec=0, timerInterval=null, running=false;
+function toggleTimer(){
+  let btn=document.getElementById('timer-btn');
+  let display=document.getElementById('study-timer');
+  if(!running){
+    running=true; btn.textContent='⏸ PAUSE'; btn.style.background='#ff4444'; btn.style.color='white';
+    timerInterval=setInterval(()=>{
+      timerSec++;
+      let m=String(Math.floor(timerSec/60)).padStart(2,'0');
+      let s=String(timerSec%60).padStart(2,'0');
+      display.textContent=m+':'+s;
+      if(timerSec==1800) alert('🎉 30 mins done! Pumzika 5 min - umesoma vizuri!');
+    },1000);
+  }else{
+    running=false; btn.textContent='▶ RESUME'; btn.style.background='#ffcc00'; btn.style.color='black';
+    clearInterval(timerInterval);
+  }
+}
+</script>
+<!-- END TIMER CLOCK -->
 <header><div class="logo">Elimu AI ✦ LIVE PAY</div><div id="planBadge" class="badge badge-free">FREE PLAN</div></header>
 <div id="view-home" class="view active">
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:15px;">
