@@ -1,36 +1,111 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Elimu AI - Real AI</title>
-<style>:root{--green:#0f6d3f;--bg:#f4f6f2;--card:#fff}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:var(--bg);padding-bottom:90px}header{display:flex;justify-content:space-between;padding:14px 16px;background:#fff;position:sticky;top:0;z-index:10}.logo{font-weight:800;color:var(--green);font-size:22px}.card{background:var(--card);border-radius:20px;margin:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.somo{border-radius:18px;padding:12px;text-align:center;cursor:pointer;border:2px solid transparent;background:#f0f0f0;transition:.2s}.somo.selected{border-color:var(--green);background:#dcfce7;transform:scale(1.02)}.tab{flex:1;padding:10px;border-radius:30px;border:none;font-weight:700;background:#eee;cursor:pointer}.tab.active{background:var(--green);color:#fff}.tabs{display:flex;gap:8px;margin-bottom:12px}textarea{width:100%;border:none;background:#f5f5f5;border-radius:16px;padding:14px;min-height:110px;font-size:16px;outline:none;resize:vertical}.btn-main{width:100%;background:linear-gradient(180deg,#15803d,#0f6d3f);color:#fff;border:none;padding:16px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px;cursor:pointer}.btn-main:disabled{opacity:.6}.answer-card{background:#eef6ee;border-radius:18px;padding:14px;margin-top:16px;border:1px solid #c8e6c9;animation:pop .3s ease}@keyframes pop{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}.step{background:#fff;border-radius:12px;padding:10px;margin:8px 0;font-size:14px}.jibu{background:#0f6d3f;color:#fff;border-radius:14px;padding:16px;font-weight:500;margin-top:10px;white-space:pre-wrap;line-height:1.7;max-height:60vh;overflow-y:auto;font-size:15px}.actions{display:flex;gap:8px;margin-top:12px}.action-btn{flex:1;padding:12px;border-radius:30px;border:none;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}.btn-copy{background:#fff;color:#0f6d3f;border:1px solid #c8e6c9!important}.btn-share{background:#0f6d3f;color:#fff}.btn-save{background:#fef3c7;color:#92400e}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 20px;border-radius:30px;font-size:14px;z-index:100;display:none}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee}.bottom-nav div{text-align:center;font-size:11px;color:#888}.bottom-nav .active{color:var(--green);font-weight:700}
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Elimu AI - Full App</title>
+<style>:root{--green:#0f6d3f;--bg:#f4f6f2;--card:#fff}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:var(--bg);padding-bottom:90px}header{display:flex;justify-content:space-between;padding:14px 16px;background:#fff;position:sticky;top:0;z-index:10}.logo{font-weight:800;color:var(--green);font-size:22px}.card{background:var(--card);border-radius:20px;margin:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.somo{border-radius:18px;padding:12px;text-align:center;cursor:pointer;border:2px solid transparent;background:#f0f0f0}.somo.selected{border-color:var(--green);background:#dcfce7}.tab{flex:1;padding:10px;border-radius:30px;border:none;font-weight:700;background:#eee;cursor:pointer}.tab.active{background:var(--green);color:#fff}.tabs{display:flex;gap:8px;margin-bottom:12px}textarea{width:100%;border:none;background:#f5f5f5;border-radius:16px;padding:14px;min-height:110px;font-size:16px;outline:none;resize:vertical}.btn-main{width:100%;background:linear-gradient(180deg,#15803d,#0f6d3f);color:#fff;border:none;padding:16px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px;cursor:pointer}.btn-main:disabled{opacity:.6}.answer-card{background:#eef6ee;border-radius:18px;padding:14px;margin-top:16px;border:1px solid #c8e6c9}.step{background:#fff;border-radius:12px;padding:10px;margin:8px 0;font-size:14px}.jibu{background:#0f6d3f;color:#fff;border-radius:14px;padding:16px;font-weight:500;margin-top:10px;white-space:pre-wrap;line-height:1.7;max-height:60vh;overflow-y:auto;font-size:15px}.actions{display:flex;gap:8px;margin-top:12px}.action-btn{flex:1;padding:12px;border-radius:30px;border:none;font-weight:700;cursor:pointer}.btn-copy{background:#fff;color:#0f6d3f;border:1px solid #c8e6c9!important}.btn-share{background:#0f6d3f;color:#fff}.btn-save{background:#fef3c7;color:#92400e}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 20px;border-radius:30px;font-size:14px;z-index:100;display:none}.view{display:none}.view.active{display:block}.paper{border:1px solid #eee;border-radius:14px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;background:#fafafa}.paper b{font-size:14px}.paper span{font-size:11px;color:#666}.tag{padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;background:#dcfce7;color:#0f6d3f}.btn-small{background:var(--green);color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:700;font-size:12px;cursor:pointer}.saved-item{background:#fff;border-radius:14px;padding:12px;margin:10px 0;border:1px solid #eee}.stat{display:flex;justify-content:space-between;background:#f0fdf4;border-radius:12px;padding:12px;margin:8px 0}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee;z-index:20}.bottom-nav div{text-align:center;font-size:11px;color:#888;cursor:pointer;padding:4px 10px;border-radius:12px}.bottom-nav .active{color:var(--green);font-weight:700;background:#f0fdf4}.soko-item{display:flex;gap:10px;background:#fff;border-radius:14px;padding:12px;margin:8px 0;border:1px solid #eee}.price{color:var(--green);font-weight:800}
 </style></head>
-<body><header><div class="logo">Elimu AI ✦ REAL AI</div><div style="background:#dcfce7;color:#0f6d3f;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800">AI LIVE ✅</div></header>
-<div class="card"><h3 style="margin-bottom:10px">Chagua Somo</h3><div class="grid" id="somoGrid">
-<div class="somo selected" data-somo="General">All<br><span style="font-size:11px">Yote</span></div><div class="somo" data-somo="Math">Math<br><span style="font-size:11px">Hisabati</span></div><div class="somo" data-somo="Biology">Bio<br><span style="font-size:11px">Biologia</span></div><div class="somo" data-somo="Kiswahili">Kiswa<br><span style="font-size:11px">Lugha</span></div><div class="somo" data-somo="History">Hist<br><span style="font-size:11px">Historia</span></div><div class="somo" data-somo="English">Eng<br><span style="font-size:11px">Kiingereza</span></div></div></div>
-<div class="card"><div class="tabs"><button class="tab active">✍️ Type Question</button><button class="tab" id="photoBtn">📷 Upload Photo</button></div><textarea id="qInput" placeholder="Andika swali LOLOTE..."></textarea><input type="file" id="photoInput" accept="image/*" style="display:none"><button class="btn-main" id="solveBtn">✦ Pata Jibu - AI Halisi</button><div id="resultArea"></div></div>
+<body>
+<header><div class="logo">Elimu AI ✦</div><div style="background:#dcfce7;color:#0f6d3f;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800">PRO v4</div></header>
+
+<div id="view-home" class="view active">
+<div class="card"><h3 style="margin-bottom:10px">Chagua Somo</h3><div class="grid">
+<div class="somo selected" data-somo="General">All<br><span style="font-size:11px">Yote</span></div>
+<div class="somo" data-somo="Math">Math</div><div class="somo" data-somo="Biology">Bio</div>
+<div class="somo" data-somo="Kiswahili">Kiswa</div><div class="somo" data-somo="History">Hist</div><div class="somo" data-somo="English">Eng</div></div></div>
+<div class="card"><div class="tabs"><button class="tab active">✍️ Type</button><button class="tab" id="photoBtn">📷 Photo</button></div>
+<textarea id="qInput" placeholder="Andika swali... Explain tumor? What is osmosis?"></textarea><input type="file" id="photoInput" accept="image/*" style="display:none">
+<button class="btn-main" id="solveBtn">✦ Pata Jibu - AI Halisi</button><div id="resultArea"></div></div>
+</div>
+
+<div id="view-papers" class="view">
+<div class="card"><h3>📄 Past Papers - CBC / 8-4-4</h3><p style="font-size:13px;color:#666;margin-top:6px">Download past papers za KCPE, KPSEA, KCSE</p>
+<div style="margin-top:14px">
+<div class="paper"><div><b>Math Class 8 - KPSEA 2023</b><br><span>Mathematics • 50 questions</span></div><div><span class="tag">FREE</span> <button class="btn-small" onclick="showToast('Opening PDF...')">Open</button></div></div>
+<div class="paper"><div><b>Science Class 8 - 2023</b><br><span>40 Q</span></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div>
+<div class="paper"><div><b>English Class 7 - 2024</b></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div>
+<div class="paper"><div><b>Kiswahili Darasa 6 - 2023</b></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div>
+<div class="paper"><div><b>KCSE Biology Paper 1 2022</b></div><div><span class="tag">KES 30</span> <button class="btn-small">Buy</button></div></div>
+</div>
+<button class="btn-main" style="background:#fff;color:var(--green);border:2px solid var(--green)" onclick="showToast('Upload coming!')">+ Upload Your Paper</button>
+</div>
+</div>
+
+<div id="view-saved" class="view">
+<div class="card"><h3>🔖 Saved Answers</h3><p style="font-size:12px;color:#888">Maswali uliyohifadhi</p>
+<div id="savedList" style="margin-top:12px"><p style="text-align:center;color:#999;padding:20px">Hakuna kitu saved bado.<br>Jibu swali na bonyeza 🔖 Save</p></div>
+<button class="btn-main" style="background:#fee2e2;color:#991b1b" onclick="if(confirm('Futa zote?')){localStorage.removeItem('elimu_saved');renderSaved();showToast('Zimefutwa')}">🗑️ Futa Zote</button>
+</div>
+</div>
+
+<div id="view-parent" class="view">
+<div class="card"><h3>👨‍👩‍👧 Parent Dashboard</h3>
+<div class="stat"><span>👶 Watoto</span><b>1 Student</b></div>
+<div class="stat"><span>❓ Maswali leo</span><b id="statToday">0</b></div>
+<div class="stat"><span>📚 Somo favorite</span><b>Biology</b></div>
+<div class="stat"><span>⏱️ Muda</span><b>24 min</b></div>
+<h4 style="margin-top:16px">💳 Mpesa Guard - Parent Control</h4>
+<p style="font-size:13px;color:#555;margin:8px 0">Lipa homework help kwa mtoto - control matumizi ya AI.</p>
+<div style="background:#f0fdf4;border-radius:12px;padding:12px;margin:10px 0"><b>Plan: FREE</b><br><span style="font-size:12px">20 maswali / siku</span><br><button class="btn-small" style="margin-top:8px" onclick="showToast('Upgrade KES 99/week - Inajengwa')">Upgrade KES 99/week</button></div>
+<button class="btn-main" onclick="showToast('Ripoti itatumwa kwa WhatsApp')">📤 Tuma Ripoti</button>
+</div>
+</div>
+
+<div id="view-soko" class="view">
+<div class="card"><h3>🛒 Soko Bei - School Market</h3>
+<div style="margin-top:12px">
+<div class="soko-item"><div style="width:60px;height:60px;background:#fef3c7;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px">📚</div><div style="flex:1"><b>Oxford Dictionary</b><br><span style="font-size:12px;color:#666">Latest</span><br><span class="price">KES 450</span></div><button class="btn-small">Nunua</button></div>
+<div class="soko-item"><div style="width:60px;height:60px;background:#dcfce7;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px">🧮</div><div style="flex:1"><b>Calculator FX-82MS</b><br><span class="price">KES 1,200</span></div><button class="btn-small">Nunua</button></div>
+<div class="soko-item"><div style="width:60px;height:60px;background:#f3e8ff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px">✏️</div><div style="flex:1"><b>Geometrical Set</b><br><span class="price">KES 150</span></div><button class="btn-small">Nunua</button></div>
+</div>
+<button class="btn-main" style="background:#fff;color:var(--green);border:2px solid var(--green)">+ Uza Bidhaa Yako</button>
+</div>
+</div>
+
 <div id="toast" class="toast"></div>
-<div class="bottom-nav"><div class="active">🏠<br>Home</div><div>📄<br>Past Papers</div><div>🔖<br>Saved</div><div>👥<br>Parent</div><div>🛒<br>Soko Bei</div></div>
+<div class="bottom-nav">
+<div id="nav-home" class="active" onclick="switchView('home')">🏠<br>Home</div>
+<div id="nav-papers" onclick="switchView('papers')">📄<br>Past Papers</div>
+<div id="nav-saved" onclick="switchView('saved')">🔖<br>Saved</div>
+<div id="nav-parent" onclick="switchView('parent')">👥<br>Parent</div>
+<div id="nav-soko" onclick="switchView('soko')">🛒<br>Soko Bei</div>
+</div>
+
 <script>
 let selectedSomo="General";
 document.querySelectorAll('.somo').forEach(el=>{el.addEventListener('click',()=>{document.querySelectorAll('.somo').forEach(s=>s.classList.remove('selected'));el.classList.add('selected');selectedSomo=el.dataset.somo;});});
-document.getElementById('photoBtn').addEventListener('click',()=>document.getElementById('photoInput').click());
+document.getElementById('photoBtn')?.addEventListener('click',()=>document.getElementById('photoInput').click());
 function showToast(msg){const t=document.getElementById('toast');t.innerText=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2500);}
-async function copyText(text){try{await navigator.clipboard.writeText(text);showToast('✅ Ime-Copy!');}catch{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();showToast('✅ Ime-Copy!');}}
-async function shareText(title,text){if(navigator.share){try{await navigator.share({title:title,text:text});showToast('✅ Shared!');return;}catch{}}copyText(text);}
-async function saveText(q,a){let saved=JSON.parse(localStorage.getItem('elimu_saved')||'[]');saved.unshift({q:q,a:a,time:new Date().toLocaleString()});localStorage.setItem('elimu_saved',JSON.stringify(saved.slice(0,20)));showToast('🔖 Saved!');}
-async function askRealAI(question,somo){
-  const prompt=`You are Elimu AI, Kenyan CBC expert. Subject: ${somo}. Answer in simple Swahili-English mix, step-by-step, Class 6-8. Question: ${question}`;
-  try{const res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t=await res.text();if(t&&t.length>10)return t;}catch{}
-  return "Pole! Jaribu tena baada ya sec 5.";
+function switchView(name){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-'+name).classList.add('active');
+  document.querySelectorAll('.bottom-nav div').forEach(d=>d.classList.remove('active'));
+  document.getElementById('nav-'+name).classList.add('active');
+  if(name==='saved') renderSaved();
+  if(name==='parent'){let c=localStorage.getItem('elimu_count')||'0';document.getElementById('statToday').innerText=c;}
+  window.scrollTo(0,0);
+}
+function renderSaved(){
+  const list=document.getElementById('savedList');
+  const saved=JSON.parse(localStorage.getItem('elimu_saved')||'[]');
+  if(saved.length===0){list.innerHTML='<p style="text-align:center;color:#999;padding:20px">Hakuna kitu saved bado.</p>';return;}
+  list.innerHTML=saved.map((s,i)=>`<div class="saved-item"><b>${i+1}. ${s.q}</b><br><span style="font-size:11px;color:#888">${s.time}</span><p>${s.a.substring(0,200)}...</p><div style="margin-top:8px"><button class="btn-small" onclick="navigator.clipboard.writeText(\`${s.q}\\n\\n${s.a.replace(/`/g,'')}\`);showToast('Copied')">Copy</button> <button class="btn-small" style="background:#fee2e2;color:#991b1b" onclick="let d=JSON.parse(localStorage.getItem('elimu_saved'));d.splice(${i},1);localStorage.setItem('elimu_saved',JSON.stringify(d));renderSaved()">Delete</button></div></div>`).join('');
+}
+async function copyText(text){try{await navigator.clipboard.writeText(text);showToast('✅ Ime-Copy!');}catch{}}
+async function shareText(title,text){if(navigator.share){try{await navigator.share({title:title,text:text});return;}catch{}}copyText(text);}
+async function askRealAI(q,somo){
+  const prompt=`You are Elimu AI Kenyan CBC expert Subject:${somo} Simple Swahili-English mix Question:${q}`;
+  try{const r=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t=await r.text();if(t&&t.length>10)return t;}catch{}return "Pole jaribu tena.";
 }
 document.getElementById('solveBtn').addEventListener('click',async()=>{
   const q=document.getElementById('qInput').value.trim();if(!q){showToast('Andika swali!');return;}
   const btn=document.getElementById('solveBtn');const resultArea=document.getElementById('resultArea');
-  btn.disabled=true;btn.innerHTML='⏳ AI Inafikiri...';resultArea.innerHTML='<div class="answer-card"><div class="step">🤖 Inajibu: <b>'+q+'</b></div><div class="step">⏳ Subiri 3-6 sec...</div></div>';
-  const answer=await askRealAI(q,selectedSomo);
-  const safe=answer.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  resultArea.innerHTML=`<div class="answer-card"><h4 style="color:#0f6d3f">✅ Hatua kwa Hatua:</h4><div class="step">1. Swali: ${q}</div><div class="step">2. Somo: ${selectedSomo}</div><div class="jibu" id="jibuText">${safe}</div><div class="actions"><button class="action-btn btn-copy" id="copyBtn">📋 Copy</button><button class="action-btn btn-share" id="shareBtn">📤 Share</button><button class="action-btn btn-save" id="saveBtn">🔖 Save</button></div></div>`;
-  document.getElementById('copyBtn').onclick=()=>copyText(q+"\n\n"+answer);
-  document.getElementById('shareBtn').onclick=()=>shareText('Elimu AI - '+q, q+"\n\n"+answer+"\n\nhttps://ismaelwelson172-max.github.io/homework-msaada/");
-  document.getElementById('saveBtn').onclick=()=>saveText(q,answer);
-  btn.disabled=false;btn.innerHTML='✦ Pata Jibu - AI Halisi';window.scrollTo(0,document.body.scrollHeight);showToast('✅ Jibu tayari!');
+  btn.disabled=true;btn.innerHTML='⏳ AI Inafikiri...';resultArea.innerHTML='<div class="answer-card"><div class="step">🤖 Inajibu: <b>'+q+'</b></div></div>';
+  let cnt=parseInt(localStorage.getItem('elimu_count')||'0')+1;localStorage.setItem('elimu_count',cnt);
+  const ans=await askRealAI(q,selectedSomo);
+  const safe=ans.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  resultArea.innerHTML=`<div class="answer-card"><h4 style="color:#0f6d3f">✅ Hatua kwa Hatua:</h4><div class="step">1. Swali: ${q}</div><div class="step">2. Somo: ${selectedSomo}</div><div class="jibu">${safe}</div><div class="actions"><button class="action-btn btn-copy" id="copyBtn">📋 Copy</button><button class="action-btn btn-share" id="shareBtn">📤 Share</button><button class="action-btn btn-save" id="saveBtn">🔖 Save</button></div></div>`;
+  document.getElementById('copyBtn').onclick=()=>copyText(q+"\n\n"+ans);
+  document.getElementById('shareBtn').onclick=()=>shareText('Elimu AI - '+q, q+"\n\n"+ans);
+  document.getElementById('saveBtn').onclick=()=>{let s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');s.unshift({q:q,a:ans,time:new Date().toLocaleString()});localStorage.setItem('elimu_saved',JSON.stringify(s.slice(0,20)));showToast('🔖 Saved! Check Saved tab');};
+  btn.disabled=false;btn.innerHTML='✦ Pata Jibu - AI Halisi';
 });
+renderSaved();
 </script></body></html>
