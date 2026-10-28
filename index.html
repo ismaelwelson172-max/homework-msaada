@@ -94,4 +94,51 @@ document.querySelectorAll('.somo').forEach(el=>{el.addEventListener('click',()=>
 async function askAI(q,somo){const low=q.toLowerCase();if(low.includes('tumor'))return `✅ TUMOR - ${somo}:\n1. Tumor = uvimbe wa seli\n2. Benign=nzuri, Malignant=mbaya (kansa)`;if(low.includes('photosynthesis'))return `✅ PHOTOSYNTHESIS:\n6CO2+6H2O+mwanga→C6H12O6+6O2`;if(low.includes('osmosis'))return `✅ OSMOSIS:\nMaji kutoka mengi → kidogo kupitia membrane.`;if(low.includes('profit'))return `✅ PROFIT:\nProfit = Kuza - Nunua`;try{const prompt=`You are Elimu AI Kenyan CBC ${somo} expert. Simple Swahili-English mix. Question: ${q}`;const r=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));if(r.ok){let t=await r.text();if(t&&t.length>20)return t;}}catch(e){}return `Jibu la ${somo}: ${q}`;}
 document.getElementById('solveBtn').addEventListener('click',async()=>{const q=document.getElementById('qInput').value.trim();if(!q){showToast('❌ Andika swali au bonyeza chip!');return;}const btn=document.getElementById('solveBtn');const ra=document.getElementById('resultArea');btn.disabled=true;btn.innerText='⏳ Inafikiri...';ra.innerHTML='<div style="background:#eef6ee;border-radius:12px;padding:12px;margin-top:12px">🤖 Inajibu: '+q+'</div>';let cnt=parseInt(localStorage.getItem('elimu_count')||'0')+1;localStorage.setItem('elimu_count',cnt);try{const ans=await askAI(q,selectedSomo);const safeA=ans.replace(/</g,'&lt;').replace(/>/g,'&gt;');ra.innerHTML=`<div style="background:#eef6ee;border-radius:16px;padding:14px;margin-top:14px;border:1px solid #bbf7d0"><h4 style="color:#0f6d3f">✅ Jibu - ${selectedSomo}:</h4><div class="jibu">${safeA}</div><div class="actions"><button class="action-btn btn-copy" onclick="copyPlain(\`${q}\\n\\n${ans.replace(/`/g,'')}\`)">📋 Copy</button><button class="action-btn btn-save" onclick="let s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');s.unshift({q:'${q.replace(/'/g,"")}',a:\`${ans.replace(/`/g,'')}\`,somo:'${selectedSomo}'});localStorage.setItem('elimu_saved',JSON.stringify(s));showToast('🔖 Saved!')">🔖 Save</button></div></div>`;showToast('✅ Jibu tayari!');}catch(e){ra.innerHTML='Error: '+e.message;}finally{btn.disabled=false;btn.innerText='✦ Pata Jibu - AI Halisi';}});
 (function(){if(plan==='PRO'){document.getElementById('planBadge').innerText='PRO ✅';document.getElementById('planBadge').className='badge badge-pro';}renderSaved();})();
+</script><script src="https://js.paystack.co/v1/inline.js"></script>
+
+<div id="payModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999;">
+ <div style="background:white; margin:15% auto; padding:25px; width:92%; max-width:400px; border-radius:18px; text-align:center;">
+  <h2 id="payTitle">Lipa Salama</h2>
+  <p id="payDesc" style="color:#555"></p>
+  <h1 id="payAmount" style="color:#011627; margin:10px 0;"></h1>
+  <input id="userEmail" type="email" placeholder="Enter Email for receipt" style="width:100%; padding:14px; border:1px solid #ddd; border-radius:10px; margin:12px 0;">
+  <button onclick="payWithPaystack()" style="width:100%; background:#0AA5FF; color:white; padding:14px; border:none; border-radius:12px; font-weight:bold; font-size:16px;">Pay via Mpesa / Card</button>
+  <button onclick="document.getElementById('payModal').style.display='none'" style="width:100%; margin-top:10px; padding:12px; border:none; background:#f0f0f0; border-radius:10px;">Cancel</button>
+  <p style="font-size:11px; color:#888; margin-top:10px;">Secured by Paystack 🔒</p>
+ </div>
+</div>
+
+<script>
+const PAYSTACK_PUBLIC_KEY = "pk_live_b2a34079f84add6a72ffd2393dbdd3ce8ad26a2a";
+let currentItem = ""; let currentPrice = 0;
+
+function buyItem(item, price){
+  currentItem = item; currentPrice = price;
+  if(localStorage.getItem('paid_'+item) === 'yes'){ location.href = item + '.html'; return; }
+  document.getElementById('payTitle').innerText = item === 'cbc-books' ? '📚 BEST CBC BOOKS' : '📝 EXAMS PACKAGE';
+  document.getElementById('payDesc').innerText = item === 'cbc-books' ? 'Grade 1-9 All Subjects KICD Approved' : 'KCPE + KCSE 2015-2024 With Schemes';
+  document.getElementById('payAmount').innerText = 'KSh ' + price;
+  document.getElementById('payModal').style.display = 'block';
+}
+
+function payWithPaystack(){
+  let email = document.getElementById('userEmail').value;
+  if(!email.includes('@')){ alert('Weka email valid'); return; }
+  let handler = PaystackPop.setup({
+    key: PAYSTACK_PUBLIC_KEY,
+    email: email,
+    amount: currentPrice * 100,
+    currency: "KES",
+    ref: ''+Math.floor(Math.random()*1000000000+1)+'_'+currentItem,
+    callback: function(res){
+      localStorage.setItem('paid_'+currentItem,'yes');
+      localStorage.setItem('ref_'+currentItem, res.reference);
+      alert('✅ Payment Success! Reference: '+res.reference);
+      document.getElementById('payModal').style.display='none';
+      location.href = currentItem+'.html';
+    },
+    onClose: function(){ alert('Payment cancelled'); }
+  });
+  handler.openIframe();
+}
 </script></body></html>
