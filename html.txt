@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elimu AI - Msaidizi wa Masomo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>body{font-family:'Nunito',sans-serif}</style>
+</head>
+<body class="bg-[#F0F7F2] pb-24 max-w-[480px] mx-auto min-h-screen">
+
+<!-- HEADER -->
+<div class="bg-white p-4 flex justify-between items-center sticky top-0 shadow-sm z-10">
+  <h1 class="font-black text-[22px] text-[#0A5C36]">Elimu AI <span class="text-[#1DB954]">✦</span></h1>
+  <div class="flex gap-2">
+    <button class="bg-[#E8F5E9] text-[#0A5C36] px-3 py-1 rounded-full text-xs font-bold">SW</button>
+    <button class="bg-gray-100 px-3 py-1 rounded-full text-xs">EN</button>
+  </div>
+</div>
+
+<!-- CHAGUA SOMO - Enhanced Colors -->
+<div class="bg-white m-4 p-5 rounded-[28px] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="font-black text-[18px]">Chagua Somo</h2>
+    <span class="text-xs bg-[#0A5C36] text-white px-3 py-1 rounded-full">CBC • 8-4-4</span>
+  </div>
+  <div class="grid grid-cols-3 gap-3">
+    <button onclick="selectSub(this,'math')" class="subj active bg-[#0A5C36] text-white border-2 border-[#0A5C36] p-3 rounded-[20px]">
+      <div class="text-2xl">🧮</div><div class="font-black text-sm">Math</div><div class="text-[11px] opacity-80">Hisabati</div>
+    </button>
+    <button onclick="selectSub(this,'eng')" class="subj bg-[#F3E8FF] border-2 border-transparent p-3 rounded-[20px]">
+      <div class="text-2xl">📚</div><div class="font-bold text-sm">English</div><div class="text-[11px] opacity-60">Kiingereza</div>
+    </button>
+    <button onclick="selectSub(this,'swa')" class="subj bg-[#FFEDD5] border-2 border-transparent p-3 rounded-[20px]">
+      <div class="text-2xl">✍️</div><div class="font-bold text-sm">Kiswahili</div><div class="text-[11px] opacity-60">Lugha</div>
+    </button>
+    <button onclick="selectSub(this,'sci')" class="subj bg-[#DCFCE7] border-2 border-transparent p-3 rounded-[20px]">
+      <div class="text-2xl">🔬</div><div class="font-bold text-sm">Science</div><div class="text-[11px] opacity-60">Sayansi</div>
+    </button>
+    <button onclick="selectSub(this,'sst')" class="subj bg-[#FEF9C3] border-2 border-transparent p-3 rounded-[20px]">
+      <div class="text-2xl">🌍</div><div class="font-bold text-sm">SST</div><div class="text-[11px] opacity-60">Jamii</div>
+    </button>
+    <button onclick="selectSub(this,'cre')" class="subj bg-[#FCE7F3] border-2 border-transparent p-3 rounded-[20px]">
+      <div class="text-2xl">🙏</div><div class="font-bold text-sm">CRE</div><div class="text-[11px] opacity-60">Dini</div>
+    </button>
+  </div>
+</div>
+
+<!-- INPUT AREA - Enhanced -->
+<div class="bg-white m-4 p-5 rounded-[28px] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+  <div class="flex bg-gray-100 p-1 rounded-full mb-4">
+    <button id="tType" onclick="setTab('type')" class="flex-1 bg-[#0A5C36] text-white py-2.5 rounded-full text-sm font-black">⌨️ Type Question</button>
+    <button id="tPhoto" onclick="setTab('photo')" class="flex-1 py-2.5 rounded-full text-sm font-bold opacity-60">📷 Upload Photo</button>
+  </div>
+
+  <div id="typeBox">
+    <div class="relative">
+      <textarea id="q" class="w-full bg-[#F8FAF9] rounded-[20px] p-4 h-28 outline-none focus:ring-2 focus:ring-[#0A5C36] text-[15px]">2+2 = ?</textarea>
+      <button class="absolute right-3 bottom-3 bg-white shadow p-2 rounded-full">🎤</button>
+    </div>
+  </div>
+
+  <div id="photoBox" class="hidden">
+    <label class="border-2 border-dashed border-[#0A5C36]/20 bg-[#F6FBF7] rounded-[20px] p-8 flex flex-col items-center">
+      <input type="file" accept="image/*" capture="environment" hidden onchange="previewPhoto(event)">
+      <span class="text-4xl">📸</span>
+      <span class="font-bold text-sm mt-2">Piga picha ya swali</span>
+      <span class="text-xs opacity-50">OCR + AI itasoma</span>
+      <img id="prev" class="hidden mt-3 rounded-xl max-h-40">
+    </label>
+  </div>
+
+  <button onclick="pataJibu()" id="btn" class="w-full mt-4 bg-gradient-to-br from-[#0A5C36] to-[#14A44D] text-white font-black py-4 rounded-[20px] shadow-lg active:scale-[0.98] transition">
+    ✦ Pata Jibu
+  </button>
+
+  <!-- ANSWER -->
+  <div id="ans" class="hidden mt-5">
+    <div class="bg-[#F0FDF4] border border-[#BBF7D0] p-4 rounded-[20px]">
+      <p class="font-black text-[#0A5C36]">✅ Hatua kwa Hatua:</p>
+      <div id="steps" class="mt-2 space-y-2 text-sm"></div>
+      <div id="final" class="bg-[#0A5C36] text-white text-center py-3 rounded-xl mt-3 font-black text-xl"></div>
+    </div>
+    <div class="flex gap-2 mt-3">
+      <button class="flex-1 bg-gray-100 py-2 rounded-full text-xs font-bold">🔖 Saved</button>
+      <button class="flex-1 bg-gray-100 py-2 rounded-full text-xs font-bold">📤 Share</button>
+      <button class="flex-1 bg-[#E8F5E9] text-[#0A5C36] py-2 rounded-full text-xs font-bold">👨‍👩‍👧 Uliza Mzazi</button>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV - Better Color -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white border-t flex justify-around py-2 px-2">
+  <div class="flex flex-col items-center bg-[#E8F5E9] text-[#0A5C36] px-4 py-1 rounded-2xl"><span>🏠</span><span class="text-[10px] font-black">Home</span></div>
+  <div class="flex flex-col items-center opacity-50 p-1"><span>📄</span><span class="text-[10px]">Past Papers</span></div>
+  <div class="flex flex-col items-center opacity-50 p-1"><span>🔖</span><span class="text-[10px]">Saved</span></div>
+  <div class="flex flex-col items-center opacity-50 p-1"><span>👥</span><span class="text-[10px]">Parent</span></div>
+  <div class="flex flex-col items-center opacity-50 p-1"><span>🛒</span><span class="text-[10px]">Soko Bei</span></div>
+</div>
+
+<script>
+let curSub='math'
+function selectSub(el,id){document.querySelectorAll('.subj').forEach(b=>{b.className='subj border-2 border-transparent p-3 rounded-[20px] bg-gray-50'});el.className='subj active bg-[#0A5C36] text-white border-2 border-[#0A5C36] p-3 rounded-[20px] scale-105';curSub=id}
+function setTab(t){
+ if(t==='type'){document.getElementById('typeBox').classList.remove('hidden');document.getElementById('photoBox').classList.add('hidden');document.getElementById('tType').className='flex-1 bg-[#0A5C36] text-white py-2.5 rounded-full text-sm font-black';document.getElementById('tPhoto').className='flex-1 py-2.5 rounded-full text-sm font-bold opacity-60'}
+ else{document.getElementById('typeBox').classList.add('hidden');document.getElementById('photoBox').classList.remove('hidden');document.getElementById('tPhoto').className='flex-1 bg-[#0A5C36] text-white py-2.5 rounded-full text-sm font-black';document.getElementById('tType').className='flex-1 py-2.5 rounded-full text-sm font-bold opacity-60'}
+}
+function previewPhoto(e){const img=document.getElementById('prev');img.src=URL.createObjectURL(e.target.files[0]);img.classList.remove('hidden')}
+function pataJibu(){
+ const q=document.getElementById('q').value;
+ const btn=document.getElementById('btn');btn.innerText='⏳ Inachambua...';btn.disabled=true;
+ // FAKE AI - Replace with your real API later
+ setTimeout(()=>{
+  document.getElementById('ans').classList.remove('hidden');
+  document.getElementById('steps').innerHTML=`<div class='bg-white p-3 rounded-xl'>1. Swali: ${q}</div><div class='bg-white p-3 rounded-xl'>2. Somo: ${curSub}</div><div class='bg-white p-3 rounded-xl'>3. Hesabu: 2+2 = 4</div>`;
+  document.getElementById('final').innerText='Jibu: 4';
+  btn.innerText='✦ Pata Jibu';btn.disabled=false;
+ },1200);
+}
+</script>
+</body>
+</html>
