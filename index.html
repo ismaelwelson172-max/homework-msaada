@@ -1,111 +1,46 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Elimu AI - Full App</title>
-<style>:root{--green:#0f6d3f;--bg:#f4f6f2;--card:#fff}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:var(--bg);padding-bottom:90px}header{display:flex;justify-content:space-between;padding:14px 16px;background:#fff;position:sticky;top:0;z-index:10}.logo{font-weight:800;color:var(--green);font-size:22px}.card{background:var(--card);border-radius:20px;margin:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.somo{border-radius:18px;padding:12px;text-align:center;cursor:pointer;border:2px solid transparent;background:#f0f0f0}.somo.selected{border-color:var(--green);background:#dcfce7}.tab{flex:1;padding:10px;border-radius:30px;border:none;font-weight:700;background:#eee;cursor:pointer}.tab.active{background:var(--green);color:#fff}.tabs{display:flex;gap:8px;margin-bottom:12px}textarea{width:100%;border:none;background:#f5f5f5;border-radius:16px;padding:14px;min-height:110px;font-size:16px;outline:none;resize:vertical}.btn-main{width:100%;background:linear-gradient(180deg,#15803d,#0f6d3f);color:#fff;border:none;padding:16px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px;cursor:pointer}.btn-main:disabled{opacity:.6}.answer-card{background:#eef6ee;border-radius:18px;padding:14px;margin-top:16px;border:1px solid #c8e6c9}.step{background:#fff;border-radius:12px;padding:10px;margin:8px 0;font-size:14px}.jibu{background:#0f6d3f;color:#fff;border-radius:14px;padding:16px;font-weight:500;margin-top:10px;white-space:pre-wrap;line-height:1.7;max-height:60vh;overflow-y:auto;font-size:15px}.actions{display:flex;gap:8px;margin-top:12px}.action-btn{flex:1;padding:12px;border-radius:30px;border:none;font-weight:700;cursor:pointer}.btn-copy{background:#fff;color:#0f6d3f;border:1px solid #c8e6c9!important}.btn-share{background:#0f6d3f;color:#fff}.btn-save{background:#fef3c7;color:#92400e}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 20px;border-radius:30px;font-size:14px;z-index:100;display:none}.view{display:none}.view.active{display:block}.paper{border:1px solid #eee;border-radius:14px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;background:#fafafa}.paper b{font-size:14px}.paper span{font-size:11px;color:#666}.tag{padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;background:#dcfce7;color:#0f6d3f}.btn-small{background:var(--green);color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:700;font-size:12px;cursor:pointer}.saved-item{background:#fff;border-radius:14px;padding:12px;margin:10px 0;border:1px solid #eee}.stat{display:flex;justify-content:space-between;background:#f0fdf4;border-radius:12px;padding:12px;margin:8px 0}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee;z-index:20}.bottom-nav div{text-align:center;font-size:11px;color:#888;cursor:pointer;padding:4px 10px;border-radius:12px}.bottom-nav .active{color:var(--green);font-weight:700;background:#f0fdf4}.soko-item{display:flex;gap:10px;background:#fff;border-radius:14px;padding:12px;margin:8px 0;border:1px solid #eee}.price{color:var(--green);font-weight:800}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Elimu AI PRO - 12 Subjects</title>
+<style>:root{--green:#0f6d3f;--bg:#f4f6f2;--card:#fff}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:var(--bg);padding-bottom:90px}header{display:flex;justify-content:space-between;padding:14px 16px;background:#fff;position:sticky;top:0;z-index:10}.logo{font-weight:800;color:var(--green);font-size:19px}.card{background:var(--card);border-radius:20px;margin:12px;padding:14px;box-shadow:0 4px 16px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.somo{border-radius:14px;padding:10px 6px;text-align:center;cursor:pointer;border:2px solid transparent;background:#f0f0f0;transition:.2s}.somo.selected{border-color:var(--green);background:#dcfce7;transform:scale(1.04)}.somo b{font-size:12.5px;display:block}.somo span{font-size:10px;color:#555}.math{background:#0f6d3f;color:#fff}.math span{color:#c8f5c8}.eng{background:#f3e8ff}.kis{background:#fef3c7}.sci{background:#dcfce7}.soc{background:#fef9c3}.agri{background:#d9f99d}.cre{background:#fce7f3}.bus{background:#e0e7ff}.comp{background:#cffafe}.home{background:#ffe4e6}.art{background:#ffedd5}.music{background:#f5f3ff}.tabs{display:flex;gap:8px;margin-bottom:12px}.tab{flex:1;padding:10px;border-radius:30px;border:none;font-weight:700;background:#eee;cursor:pointer}.tab.active{background:var(--green);color:#fff}textarea{width:100%;border:none;background:#f5f5f5;border-radius:16px;padding:14px;min-height:110px;font-size:16px;outline:none;resize:vertical}.btn-main{width:100%;background:linear-gradient(180deg,#15803d,#0f6d3f);color:#fff;border:none;padding:16px;border-radius:16px;font-size:18px;font-weight:800;margin-top:12px;cursor:pointer}.btn-main:disabled{opacity:.5}.answer-card{background:#eef6ee;border-radius:18px;padding:14px;margin-top:16px;border:1px solid #c8e6c9}.step{background:#fff;border-radius:12px;padding:10px;margin:8px 0;font-size:14px}.jibu{background:#0f6d3f;color:#fff;border-radius:14px;padding:16px;white-space:pre-wrap;line-height:1.7;max-height:65vh;overflow-y:auto;font-size:15px}.actions{display:flex;gap:8px;margin-top:12px}.action-btn{flex:1;padding:12px;border-radius:30px;border:none;font-weight:700;cursor:pointer}.btn-copy{background:#fff;color:#0f6d3f;border:1px solid #c8e6c9!important}.btn-share{background:#0f6d3f;color:#fff}.btn-save{background:#fef3c7;color:#92400e}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 20px;border-radius:30px;font-size:14px;z-index:100;display:none}.view{display:none}.view.active{display:block}.paper{border:1px solid #eee;border-radius:14px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;background:#fafafa}.tag{padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;background:#dcfce7;color:#0f6d3f}.btn-small{background:var(--green);color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:700;font-size:12px;cursor:pointer}.saved-item{background:#fff;border-radius:14px;padding:12px;margin:10px 0;border:1px solid #eee}.stat{display:flex;justify-content:space-between;background:#f0fdf4;border-radius:12px;padding:12px;margin:8px 0}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee;z-index:20}.bottom-nav div{text-align:center;font-size:11px;color:#888;cursor:pointer;padding:4px 6px;border-radius:12px;flex:1}.bottom-nav .active{color:var(--green);font-weight:700;background:#f0fdf4}.soko-item{display:flex;gap:10px;background:#fff;border-radius:14px;padding:12px;margin:8px 0;border:1px solid #eee}.price{color:var(--green);font-weight:800}.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.65);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}.modal.active{display:flex}.modal-box{background:#fff;border-radius:20px;padding:20px;width:100%;max-width:400px}.input{width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;margin:8px 0;font-size:16px}.btn-pay{background:#00a651;color:#fff;border:none;padding:14px;border-radius:12px;width:100%;font-weight:800;margin-top:10px;cursor:pointer}
 </style></head>
 <body>
-<header><div class="logo">Elimu AI ✦</div><div style="background:#dcfce7;color:#0f6d3f;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800">PRO v4</div></header>
-
+<header><div class="logo">Elimu AI ✦ 12 CBC</div><div id="planBadge" style="background:#fbbf24;color:#000;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:800">FREE PLAN</div></header>
 <div id="view-home" class="view active">
-<div class="card"><h3 style="margin-bottom:10px">Chagua Somo</h3><div class="grid">
-<div class="somo selected" data-somo="General">All<br><span style="font-size:11px">Yote</span></div>
-<div class="somo" data-somo="Math">Math</div><div class="somo" data-somo="Biology">Bio</div>
-<div class="somo" data-somo="Kiswahili">Kiswa</div><div class="somo" data-somo="History">Hist</div><div class="somo" data-somo="English">Eng</div></div></div>
-<div class="card"><div class="tabs"><button class="tab active">✍️ Type</button><button class="tab" id="photoBtn">📷 Photo</button></div>
-<textarea id="qInput" placeholder="Andika swali... Explain tumor? What is osmosis?"></textarea><input type="file" id="photoInput" accept="image/*" style="display:none">
-<button class="btn-main" id="solveBtn">✦ Pata Jibu - AI Halisi</button><div id="resultArea"></div></div>
-</div>
-
-<div id="view-papers" class="view">
-<div class="card"><h3>📄 Past Papers - CBC / 8-4-4</h3><p style="font-size:13px;color:#666;margin-top:6px">Download past papers za KCPE, KPSEA, KCSE</p>
-<div style="margin-top:14px">
-<div class="paper"><div><b>Math Class 8 - KPSEA 2023</b><br><span>Mathematics • 50 questions</span></div><div><span class="tag">FREE</span> <button class="btn-small" onclick="showToast('Opening PDF...')">Open</button></div></div>
-<div class="paper"><div><b>Science Class 8 - 2023</b><br><span>40 Q</span></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div>
-<div class="paper"><div><b>English Class 7 - 2024</b></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div>
-<div class="paper"><div><b>Kiswahili Darasa 6 - 2023</b></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div>
-<div class="paper"><div><b>KCSE Biology Paper 1 2022</b></div><div><span class="tag">KES 30</span> <button class="btn-small">Buy</button></div></div>
-</div>
-<button class="btn-main" style="background:#fff;color:var(--green);border:2px solid var(--green)" onclick="showToast('Upload coming!')">+ Upload Your Paper</button>
-</div>
-</div>
-
-<div id="view-saved" class="view">
-<div class="card"><h3>🔖 Saved Answers</h3><p style="font-size:12px;color:#888">Maswali uliyohifadhi</p>
-<div id="savedList" style="margin-top:12px"><p style="text-align:center;color:#999;padding:20px">Hakuna kitu saved bado.<br>Jibu swali na bonyeza 🔖 Save</p></div>
-<button class="btn-main" style="background:#fee2e2;color:#991b1b" onclick="if(confirm('Futa zote?')){localStorage.removeItem('elimu_saved');renderSaved();showToast('Zimefutwa')}">🗑️ Futa Zote</button>
-</div>
-</div>
-
-<div id="view-parent" class="view">
-<div class="card"><h3>👨‍👩‍👧 Parent Dashboard</h3>
-<div class="stat"><span>👶 Watoto</span><b>1 Student</b></div>
-<div class="stat"><span>❓ Maswali leo</span><b id="statToday">0</b></div>
-<div class="stat"><span>📚 Somo favorite</span><b>Biology</b></div>
-<div class="stat"><span>⏱️ Muda</span><b>24 min</b></div>
-<h4 style="margin-top:16px">💳 Mpesa Guard - Parent Control</h4>
-<p style="font-size:13px;color:#555;margin:8px 0">Lipa homework help kwa mtoto - control matumizi ya AI.</p>
-<div style="background:#f0fdf4;border-radius:12px;padding:12px;margin:10px 0"><b>Plan: FREE</b><br><span style="font-size:12px">20 maswali / siku</span><br><button class="btn-small" style="margin-top:8px" onclick="showToast('Upgrade KES 99/week - Inajengwa')">Upgrade KES 99/week</button></div>
-<button class="btn-main" onclick="showToast('Ripoti itatumwa kwa WhatsApp')">📤 Tuma Ripoti</button>
-</div>
-</div>
-
-<div id="view-soko" class="view">
-<div class="card"><h3>🛒 Soko Bei - School Market</h3>
-<div style="margin-top:12px">
-<div class="soko-item"><div style="width:60px;height:60px;background:#fef3c7;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px">📚</div><div style="flex:1"><b>Oxford Dictionary</b><br><span style="font-size:12px;color:#666">Latest</span><br><span class="price">KES 450</span></div><button class="btn-small">Nunua</button></div>
-<div class="soko-item"><div style="width:60px;height:60px;background:#dcfce7;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px">🧮</div><div style="flex:1"><b>Calculator FX-82MS</b><br><span class="price">KES 1,200</span></div><button class="btn-small">Nunua</button></div>
-<div class="soko-item"><div style="width:60px;height:60px;background:#f3e8ff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px">✏️</div><div style="flex:1"><b>Geometrical Set</b><br><span class="price">KES 150</span></div><button class="btn-small">Nunua</button></div>
-</div>
-<button class="btn-main" style="background:#fff;color:var(--green);border:2px solid var(--green)">+ Uza Bidhaa Yako</button>
-</div>
-</div>
-
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h3>Chagua Somo (12)</h3><span style="background:var(--green);color:#fff;padding:4px 10px;border-radius:20px;font-size:10px">CBC FULL</span></div>
+<div class="grid">
+<div class="somo math selected" data-somo="Math"><b>🧮 Math</b><span>Hisabati</span></div>
+<div class="somo eng" data-somo="English"><b>📚 English</b><span>Kiingereza</span></div>
+<div class="somo kis" data-somo="Kiswahili"><b>✍️ Kiswahili</b><span>Lugha</span></div>
+<div class="somo sci" data-somo="Science & Technology"><b>🔬 Science</b><span>Sayansi</span></div>
+<div class="somo soc" data-somo="Social Studies"><b>🌍 Social</b><span>Jamii</span></div>
+<div class="somo agri" data-somo="Agriculture"><b>🌱 Agriculture</b><span>Kilimo</span></div>
+<div class="somo cre" data-somo="CRE"><b>🙏 CRE</b><span>Dini</span></div>
+<div class="somo bus" data-somo="Business Studies"><b>💼 Business</b><span>Biashara</span></div>
+<div class="somo comp" data-somo="Computer Science"><b>💻 Computer</b><span>Tar akili</span></div>
+<div class="somo home" data-somo="Home Science"><b>🏠 Home Sci</b><span>Nyumbani</span></div>
+<div class="somo art" data-somo="Art & Craft"><b>🎨 Art & Craft</b><span>Sanaa</span></div>
+<div class="somo music" data-somo="Music"><b>🎵 Music</b><span>Muziki</span></div>
+</div></div>
+<div class="card"><div class="tabs"><button class="tab active">✍️ Type Question</button><button class="tab" id="photoBtn">📷 Photo</button></div>
+<textarea id="qInput" placeholder="Andika swali la somo lolote kati ya 12..."></textarea><input type="file" id="photoInput" accept="image/*" style="display:none"><button class="btn-main" id="solveBtn">✦ Pata Jibu - AI Halisi</button><div id="resultArea"></div>
+<div id="limitMsg" style="display:none;background:#fef3c7;border-radius:12px;padding:12px;margin-top:12px;text-align:center;border:1px solid #fcd34d"><b>⚠️ Limit ya FREE (20/day) imefika!</b><br><button class="btn-small" style="margin-top:8px" onclick="openUpgrade()">🚀 Upgrade KES 99/week</button></div></div></div>
+<div id="view-papers" class="view"><div class="card"><h3>📄 Past Papers - CBC 12 Subjects</h3><div style="margin-top:12px"><div class="paper"><div><b>Math Class 8 KPSEA 2023</b></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div><div class="paper"><div><b>Science & Tech Grade 7</b></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div><div class="paper"><div><b>Agriculture - Soil</b></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div><div class="paper"><div><b>Business - Profit & Loss</b></div><div><span class="tag">FREE</span> <button class="btn-small">Open</button></div></div><div class="paper"><div><b>Computer - Coding</b></div><div><span class="tag">NEW</span> <button class="btn-small">Open</button></div></div></div></div></div>
+<div id="view-saved" class="view"><div class="card"><h3>🔖 Saved Answers</h3><div id="savedList"></div><button class="btn-main" style="background:#fee2e2;color:#991b1b" onclick="if(confirm('Futa?')){localStorage.removeItem('elimu_saved');renderSaved();showToast('Zimefutwa')}">🗑️ Futa Zote</button></div></div>
+<div id="view-parent" class="view"><div class="card"><h3>👨‍👩‍👧 Parent Dashboard</h3><div class="stat"><span>❓ Maswali leo</span><b id="statToday">0 / 20</b></div><div class="stat"><span>📚 Somo nyingi</span><b id="statFav">Math</b></div><div class="stat"><span>📊 Plan</span><b id="statPlan">FREE</b></div><div style="background:linear-gradient(135deg,#0f6d3f,#16a34a);color:#fff;border-radius:16px;padding:16px;margin:14px 0"><h3>🚀 UPGRADE TO PRO - 12 SOMO</h3><p style="font-size:13px;margin:8px 0">✅ Unlimited maswali<br>✅ Past Papers zote<br>✅ Save unlimited</p><p style="font-size:22px;font-weight:800">KES 99 / wiki au 299 / mwezi</p><button class="btn-main" style="background:#fff;color:#0f6d3f;margin-top:12px" onclick="openUpgrade()">💳 Lipa na Mpesa</button></div></div></div>
+<div id="view-soko" class="view"><div class="card"><h3>🛒 Soko Bei</h3><div style="margin-top:12px"><div class="soko-item"><div style="width:60px;height:60px;background:#fef3c7;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:28px">📚</div><div style="flex:1"><b>Oxford Dict</b><br><span class="price">KES 450</span></div><button class="btn-small">Nunua</button></div><div class="soko-item"><div style="width:60px;height:60px;background:#dcfce7;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:28px">🧮</div><div style="flex:1"><b>Calculator</b><br><span class="price">KES 1,200</span></div><button class="btn-small">Nunua</button></div></div></div></div>
+<div id="upgradeModal" class="modal"><div class="modal-box"><h3 style="text-align:center">💳 Lipa na Mpesa - PRO</h3><p style="text-align:center;font-size:13px;color:#666;margin:8px 0">Pata 12 masomo unlimited!</p><div style="display:flex;gap:8px;margin:12px 0"><button id="planWeek" class="btn-small" style="flex:1;padding:14px;background:#0f6d3f;color:#fff" onclick="selectPlan('week')">Week<br><b>KES 99</b></button><button id="planMonth" class="btn-small" style="flex:1;padding:14px;background:#eee;color:#000" onclick="selectPlan('month')">Month<br><b>KES 299</b></button></div><div style="background:#f4f6f2;border-radius:12px;padding:12px;margin:10px 0;font-size:14px"><b>Till: 123456</b> - Elimu AI<br><span style="font-size:11px;color:#666">Badilisha na Till yako</span></div><input id="mpesaPhone" class="input" placeholder="Namba ya Mpesa: 07XX XXX XXX" type="tel"><input id="mpesaCode" class="input" placeholder="Mpesa Code (QGH...)"><button class="btn-pay" onclick="verifyPayment()">✅ Nimeshalipa - Activate PRO</button><button style="background:none;border:none;width:100%;padding:12px;color:#666" onclick="closeUpgrade()">Cancel</button></div></div>
 <div id="toast" class="toast"></div>
-<div class="bottom-nav">
-<div id="nav-home" class="active" onclick="switchView('home')">🏠<br>Home</div>
-<div id="nav-papers" onclick="switchView('papers')">📄<br>Past Papers</div>
-<div id="nav-saved" onclick="switchView('saved')">🔖<br>Saved</div>
-<div id="nav-parent" onclick="switchView('parent')">👥<br>Parent</div>
-<div id="nav-soko" onclick="switchView('soko')">🛒<br>Soko Bei</div>
-</div>
-
+<div class="bottom-nav"><div id="nav-home" class="active" onclick="switchView('home')">🏠<br>Home</div><div id="nav-papers" onclick="switchView('papers')">📄<br>Papers</div><div id="nav-saved" onclick="switchView('saved')">🔖<br>Saved</div><div id="nav-parent" onclick="switchView('parent')">👥<br>Parent</div><div id="nav-soko" onclick="switchView('soko')">🛒<br>Soko</div></div>
 <script>
-let selectedSomo="General";
-document.querySelectorAll('.somo').forEach(el=>{el.addEventListener('click',()=>{document.querySelectorAll('.somo').forEach(s=>s.classList.remove('selected'));el.classList.add('selected');selectedSomo=el.dataset.somo;});});
-document.getElementById('photoBtn')?.addEventListener('click',()=>document.getElementById('photoInput').click());
-function showToast(msg){const t=document.getElementById('toast');t.innerText=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2500);}
-function switchView(name){
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  document.getElementById('view-'+name).classList.add('active');
-  document.querySelectorAll('.bottom-nav div').forEach(d=>d.classList.remove('active'));
-  document.getElementById('nav-'+name).classList.add('active');
-  if(name==='saved') renderSaved();
-  if(name==='parent'){let c=localStorage.getItem('elimu_count')||'0';document.getElementById('statToday').innerText=c;}
-  window.scrollTo(0,0);
-}
-function renderSaved(){
-  const list=document.getElementById('savedList');
-  const saved=JSON.parse(localStorage.getItem('elimu_saved')||'[]');
-  if(saved.length===0){list.innerHTML='<p style="text-align:center;color:#999;padding:20px">Hakuna kitu saved bado.</p>';return;}
-  list.innerHTML=saved.map((s,i)=>`<div class="saved-item"><b>${i+1}. ${s.q}</b><br><span style="font-size:11px;color:#888">${s.time}</span><p>${s.a.substring(0,200)}...</p><div style="margin-top:8px"><button class="btn-small" onclick="navigator.clipboard.writeText(\`${s.q}\\n\\n${s.a.replace(/`/g,'')}\`);showToast('Copied')">Copy</button> <button class="btn-small" style="background:#fee2e2;color:#991b1b" onclick="let d=JSON.parse(localStorage.getItem('elimu_saved'));d.splice(${i},1);localStorage.setItem('elimu_saved',JSON.stringify(d));renderSaved()">Delete</button></div></div>`).join('');
-}
-async function copyText(text){try{await navigator.clipboard.writeText(text);showToast('✅ Ime-Copy!');}catch{}}
-async function shareText(title,text){if(navigator.share){try{await navigator.share({title:title,text:text});return;}catch{}}copyText(text);}
-async function askRealAI(q,somo){
-  const prompt=`You are Elimu AI Kenyan CBC expert Subject:${somo} Simple Swahili-English mix Question:${q}`;
-  try{const r=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t=await r.text();if(t&&t.length>10)return t;}catch{}return "Pole jaribu tena.";
-}
-document.getElementById('solveBtn').addEventListener('click',async()=>{
-  const q=document.getElementById('qInput').value.trim();if(!q){showToast('Andika swali!');return;}
-  const btn=document.getElementById('solveBtn');const resultArea=document.getElementById('resultArea');
-  btn.disabled=true;btn.innerHTML='⏳ AI Inafikiri...';resultArea.innerHTML='<div class="answer-card"><div class="step">🤖 Inajibu: <b>'+q+'</b></div></div>';
-  let cnt=parseInt(localStorage.getItem('elimu_count')||'0')+1;localStorage.setItem('elimu_count',cnt);
-  const ans=await askRealAI(q,selectedSomo);
-  const safe=ans.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  resultArea.innerHTML=`<div class="answer-card"><h4 style="color:#0f6d3f">✅ Hatua kwa Hatua:</h4><div class="step">1. Swali: ${q}</div><div class="step">2. Somo: ${selectedSomo}</div><div class="jibu">${safe}</div><div class="actions"><button class="action-btn btn-copy" id="copyBtn">📋 Copy</button><button class="action-btn btn-share" id="shareBtn">📤 Share</button><button class="action-btn btn-save" id="saveBtn">🔖 Save</button></div></div>`;
-  document.getElementById('copyBtn').onclick=()=>copyText(q+"\n\n"+ans);
-  document.getElementById('shareBtn').onclick=()=>shareText('Elimu AI - '+q, q+"\n\n"+ans);
-  document.getElementById('saveBtn').onclick=()=>{let s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');s.unshift({q:q,a:ans,time:new Date().toLocaleString()});localStorage.setItem('elimu_saved',JSON.stringify(s.slice(0,20)));showToast('🔖 Saved! Check Saved tab');};
-  btn.disabled=false;btn.innerHTML='✦ Pata Jibu - AI Halisi';
-});
-renderSaved();
+let selectedSomo="Math",selectedPlan="week";let plan=localStorage.getItem('elimu_plan')||'FREE';
+document.querySelectorAll('.somo').forEach(el=>{el.addEventListener('click',()=>{document.querySelectorAll('.somo').forEach(s=>s.classList.remove('selected'));el.classList.add('selected');selectedSomo=el.dataset.somo;showToast('Somo: '+selectedSomo);});});
+document.getElementById('photoBtn').addEventListener('click',()=>document.getElementById('photoInput').click());
+function showToast(m){const t=document.getElementById('toast');t.innerText=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
+function switchView(n){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+n).classList.add('active');document.querySelectorAll('.bottom-nav div').forEach(d=>d.classList.remove('active'));document.getElementById('nav-'+n).classList.add('active');if(n==='saved')renderSaved();if(n==='parent'){document.getElementById('statToday').innerText=(localStorage.getItem('elimu_count')||'0')+' / '+(plan==='PRO'?'∞':'20');document.getElementById('statPlan').innerText=plan;document.getElementById('statFav').innerText=localStorage.getItem('elimu_fav')||'Math';}window.scrollTo(0,0);}
+function renderSaved(){const l=document.getElementById('savedList');const s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');if(s.length===0){l.innerHTML='<p style="text-align:center;color:#999;padding:20px">Hakuna saved bado.</p>';return;}l.innerHTML=s.map((x,i)=>`<div class="saved-item"><b>${i+1}. ${x.q} <span style="background:#dcfce7;padding:2px 6px;border-radius:10px;font-size:10px">${x.somo}</span></b><br><span style="font-size:11px;color:#888">${x.time}</span><p style="font-size:13px;margin-top:6px;white-space:pre-wrap">${x.a.substring(0,180)}...</p><div style="margin-top:8px"><button class="btn-small" onclick="navigator.clipboard.writeText(\`${x.q}\\n\\n${x.a.replace(/`/g,'')}\`);showToast('Copied')">Copy</button> <button class="btn-small" style="background:#fee2e2;color:#991b1b" onclick="let d=JSON.parse(localStorage.getItem('elimu_saved'));d.splice(${i},1);localStorage.setItem('elimu_saved',JSON.stringify(d));renderSaved()">Delete</button></div></div>`).join('');}
+function openUpgrade(){document.getElementById('upgradeModal').classList.add('active');}function closeUpgrade(){document.getElementById('upgradeModal').classList.remove('active');}
+function selectPlan(p){selectedPlan=p;document.getElementById('planWeek').style.background=p==='week'?'#0f6d3f':'#eee';document.getElementById('planWeek').style.color=p==='week'?'#fff':'#000';document.getElementById('planMonth').style.background=p==='month'?'#0f6d3f':'#eee';document.getElementById('planMonth').style.color=p==='month'?'#fff':'#000';}
+function verifyPayment(){const phone=document.getElementById('mpesaPhone').value.trim();if(phone.length<10){showToast('Weka namba sahihi');return;}localStorage.setItem('elimu_plan','PRO');plan='PRO';document.getElementById('planBadge').innerText='PRO ✅';document.getElementById('planBadge').style.background='#0f6d3f';document.getElementById('planBadge').style.color='#fff';showToast('🎉 PRO Activated!');closeUpgrade();switchView('home');}
+function checkLimit(){const count=parseInt(localStorage.getItem('elimu_count')||'0');if(plan==='FREE'&&count>=20){document.getElementById('limitMsg').style.display='block';document.getElementById('solveBtn').disabled=true;return true;}document.getElementById('limitMsg').style.display='none';document.getElementById('solveBtn').disabled=false;return false;}
+async function askRealAI(q,somo){const prompt=`You are Elimu AI Kenyan CBC expert Subject:${somo} Simple Swahili-English mix Question:${q}`;try{const r=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let t=await r.text();if(t&&t.length>10)return t;}catch{}return "Pole jaribu tena.";}
+document.getElementById('solveBtn').addEventListener('click',async()=>{if(checkLimit()){showToast('Limit imefika!');return;}const q=document.getElementById('qInput').value.trim();if(!q){showToast('Andika swali!');return;}const btn=document.getElementById('solveBtn');const ra=document.getElementById('resultArea');btn.disabled=true;btn.innerHTML='⏳ AI Inafikiri... ['+selectedSomo+']';ra.innerHTML='<div class="answer-card"><div class="step">🤖 Inajibu: <b>'+q+'</b> ['+selectedSomo+']</div></div>';let cnt=parseInt(localStorage.getItem('elimu_count')||'0')+1;localStorage.setItem('elimu_count',cnt);localStorage.setItem('elimu_fav',selectedSomo);const ans=await askRealAI(q,selectedSomo);const safe=ans.replace(/</g,'&lt;').replace(/>/g,'&gt;');ra.innerHTML=`<div class="answer-card"><h4 style="color:#0f6d3f">✅ Hatua kwa Hatua:</h4><div class="step">1. Swali: ${q}</div><div class="step">2. Somo: ${selectedSomo}</div><div class="jibu">${safe}</div><div class="actions"><button class="action-btn btn-copy" id="copyBtn">📋 Copy</button><button class="action-btn btn-share" id="shareBtn">📤 Share</button><button class="action-btn btn-save" id="saveBtn">🔖 Save</button></div></div>`;document.getElementById('copyBtn').onclick=()=>{navigator.clipboard.writeText(q+"\n\n"+ans);showToast('✅ Copied!');};document.getElementById('shareBtn').onclick=()=>{if(navigator.share){navigator.share({title:'Elimu AI',text:q+"\n\n"+ans});}else{navigator.clipboard.writeText(q+"\n\n"+ans);}};document.getElementById('saveBtn').onclick=()=>{let s=JSON.parse(localStorage.getItem('elimu_saved')||'[]');s.unshift({q:q,a:ans,somo:selectedSomo,time:new Date().toLocaleString()});localStorage.setItem('elimu_saved',JSON.stringify(s.slice(0,30)));showToast('🔖 Saved!');};btn.disabled=false;btn.innerHTML='✦ Pata Jibu';checkLimit();});
+(function(){if(plan==='PRO'){document.getElementById('planBadge').innerText='PRO ✅';document.getElementById('planBadge').style.background='#0f6d3f';document.getElementById('planBadge').style.color='#fff';}checkLimit();renderSaved();})();
 </script></body></html>
