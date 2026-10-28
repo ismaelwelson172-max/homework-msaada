@@ -59,7 +59,19 @@
 <button style="background:none;border:none;width:100%;padding:12px;color:#666;margin-top:8px" onclick="closeUpgrade()">Cancel</button>
 </div></div>
 <div id="toast" class="toast"></div>
-<div class="bottom-nav"><div id="nav-home" class="active" onclick="switchView('home')">🏠<br>Home</div><div id="nav-papers" onclick="switchView('papers')">📄<br>Papers</div><div id="nav-saved" onclick="switchView('saved')">🔖<br>Saved</div><div id="nav-parent" onclick="switchView('parent')">👥<br>Parent</div><div id="nav-soko" onclick="switchView('soko')">🛒<br>Soko</div></div>
+<style>
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd;z-index:999}
+.bottom-nav a{text-decoration:none;color:#555;font-size:11px;text-align:center;display:flex;flex-direction:column;align-items:center;padding:4px 10px;border-radius:8px}
+.bottom-nav a.active{color:#0b8a42;background:#e8f5e9;font-weight:bold}
+</style>
+<div class="bottom-nav">
+  <a href="index.html" class="active">🏠<br>Home</a>
+  <a href="exams.html?admin=elimu2024">📄<br>Papers</a>
+  <a href="cbc-books.html?admin=elimu2024">🔖<br>Saved</a>
+  <a href="https://wa.me/254700000000?text=Habari%20Mzazi%20Elimu%20AI" target="_blank">👥<br>Parent</a>
+  <a href="cbc-books.html?admin=elimu2024">🛒<br>Soko</a>
+</div>
+<div style="height:70px"></div> <!-- space so content not hidden -->
 <script>
 let selectedSomo="Math",selectedPlan="week";let plan=localStorage.getItem('elimu_plan')||'FREE';
 const PAYSTACK_PUBLIC_KEY="pk_live_b2a34079f84add6a72ffd2393dbdd3ce8ad26a2a";
