@@ -4,8 +4,15 @@
 <style>body{font-family:sans-serif;padding:15px;background:#f5f7fb}.paper{background:white;padding:15px;border-radius:12px;margin:12px 0;box-shadow:0 2px 8px #0001}.btn{display:block;background:#1a56db;color:white;text-align:center;padding:10px;border-radius:8px;text-decoration:none}</style>
 </head><body>
 <script>
-if(localStorage.getItem('paid_exams')!=='yes'){
-  document.write('<h1>🔒 Lipa KSh 150 Kwanza</h1><a href="index.html">Rudi Kulipa</a>'); throw '';
+if(window.location.search.includes('admin=elimu2024')){
+  localStorage.setItem('paid_exams','yes');
+  localStorage.setItem('paid_cbc-books','yes');
+  localStorage.setItem('admin_mode','true');
+  alert('✅ ADMIN UNLOCKED - Karibu Boss!');
+}
+if(localStorage.getItem('paid_exams')!=='yes' && localStorage.getItem('admin_mode')!=='true'){
+  document.write('<h1>🔒 Lipa KSh 150 Kwanza</h1><p>Admin? Add ?admin=elimu2024</p><a href="index.html">Rudi Home</a>'); 
+  throw '';
 }
 </script>
 
