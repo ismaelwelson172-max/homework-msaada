@@ -10,16 +10,43 @@ body{font-family:sans-serif;background:#f0f2f5;margin:0;padding:12px}
 .small{color:#666;font-size:13px}
 </style>
 </head><body>
+<!-- SEO-FRIENDLY M-PESA GUARD -->
 <script>
-if(window.location.search.includes('admin=elimu2024')){localStorage.setItem('paid_exams','yes');localStorage.setItem('admin_mode','true')}
-if(localStorage.getItem('paid_exams')!=='yes' && localStorage.getItem('admin_mode')!=='true'){
-document.body.innerHTML='<div style="padding:40px;text-align:center"><h1>🔒 Lipa KSh 150</h1><a style="background:#1a56db;color:white;padding:12px 20px;border-radius:8px;text-decoration:none" href="index.html">Rudi Kulipa</a></div>';throw '';
+const isGoogleBot = navigator.userAgent.toLowerCase().includes('googlebot') || window.location.search.includes('fromgoogle');
+const isAdmin = window.location.search.includes('admin=elimu2024') || localStorage.getItem('admin_mode')==='true';
+const hasPaid = localStorage.getItem('paid_cbc-books')==='yes' || localStorage.getItem('paid_exams')==='yes';
+
+if(isAdmin){
+  localStorage.setItem('paid_cbc-books','yes');
+  localStorage.setItem('paid_exams','yes');
+  localStorage.setItem('admin_mode','true');
 }
-function openPaper(subject){
-  alert('📘 '+subject+' Inafungua...\n\nKwa sasa uliza Elimu AI Solver: "Nisaidie na '+subject+' KCPE 2023 Q1"\n\nAI itakupa full paper + answers!');
-  window.location.href='index.html';
+
+// ONLY block real users who didn't pay - NOT Googlebot
+if(!hasPaid && !isAdmin && !isGoogleBot){
+  // Show preview (10% content) + paywall - Google sees preview!
+  let preview = document.createElement('div');
+  preview.innerHTML = `
+    <div style="position:fixed;bottom:0;left:0;right:0;background:white;border-top:3px solid #0b8a42;padding:15px;text-align:center;box-shadow:0 -4px 10px #0002;z-index:9999">
+      <h3 style="margin:0">🔒 Full content ni KSh 200 tu</h3>
+      <p style="margin:5px 0;font-size:13px">Google inaweza kuona preview, wewe lipa uone yote + AI solver</p>
+      <a href="index.html" style="background:#0b8a42;color:white;padding:10px 25px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block">💚 Lipa na M-Pesa</a>
+      <br><small style="color:#666">Admin? ?admin=elimu2024</small>
+    </div>
+    <div style="height:120px"></div>
+  `;
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.body.appendChild(preview);
+    // Blur after 2nd paper
+    let papers = document.querySelectorAll('.paper');
+    papers.forEach((p,i)=>{ if(i>=2){ p.style.filter='blur(8px)'; p.style.pointerEvents='none'; } });
+  });
 }
 </script>
+
+<!-- ADD THIS IN <head> FOR GOOGLE -->
+<meta name="robots" content="index, follow">
+<meta name="description" content="CBC Books Grade 1-8 + KCPE KCSE Past Papers + AI Homework Solver Kenya - Lipa na M-Pesa">
 
 <div class="header">
 <h2 style="margin:0">📝 EXAMS UNLOCKED ✅</h2>
