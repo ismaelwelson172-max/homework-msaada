@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /cbc-books.html
+Allow: /exams.html
+
+Sitemap: https://ismaelwelson172-max.github.io/homework-msaada/sitemap.xml
